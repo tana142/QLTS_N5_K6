@@ -6,11 +6,12 @@
 package Form;
 
 import static Form.SuaThiSinh.arrTS;
+import static Form.SuaThiSinh.executeStatement;
 import static Form.SuaThiSinh.index;
-import Main.ConnectionDataBase;
-import Main.DiaChi;
-import Main.Khoi;
-import Main.ThiSinh;
+import QLTS.ConnectionDataBase;
+import QLTS.DiaChi;
+import QLTS.Khoi;
+import QLTS.ThiSinh;
 import QLTS.ExecuteStatement;
 import QLTS.UpdatePrepareStatement;
 import java.awt.event.KeyEvent;
@@ -38,6 +39,15 @@ public class ThemThiSinh extends java.awt.Frame {
      */
     public ThemThiSinh() {
         initComponents();
+         choice1.addItem("Khối A");
+        choice1.addItem("Khối B");
+        choice1.addItem("Khối C");
+
+        choice_ut.addItem("Nhóm 1");
+        choice_ut.addItem("Nhóm 2");
+        choice_ut.addItem("Nhóm 3");
+
+        arrTS = executeStatement.selectThiSinh();
     }
 
     /**
