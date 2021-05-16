@@ -26,7 +26,7 @@ import java.util.logging.Logger;
  */
 public class SuaThiSinh extends java.awt.Frame {
 
-    static ConnectionDataBase connect = new ConnectionDataBase();
+    
     static int index = 1;
     static ArrayList<ThiSinh> arrTS = new ArrayList<>();
     static UpdatePrepareStatement prepareStatement;
