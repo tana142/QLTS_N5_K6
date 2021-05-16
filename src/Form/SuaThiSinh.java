@@ -99,6 +99,7 @@ int vtri = i;String schoice = "", uchoice = "";
             schoice += arrTS.get(vtri).getKhoi().getTenKhoi().toString().trim();
             uchoice += arrTS.get(vtri).getUuTien().toString().trim();
             
+            
             //set index choice
             if (schoice.equals("Khối A")) {
                 choice1.select("Khối A");
@@ -162,11 +163,13 @@ int vtri = i;String schoice = "", uchoice = "";
         btn_back = new java.awt.Button();
         choice1 = new java.awt.Choice();
         choice_ut = new java.awt.Choice();
+        button1 = new java.awt.Button();
         menuBar1 = new java.awt.MenuBar();
-        menu1 = new java.awt.Menu();
-        menu2 = new java.awt.Menu();
-        menu3 = new java.awt.Menu();
-        menu4 = new java.awt.Menu();
+        m_ttts = new java.awt.Menu();
+        m_themts = new java.awt.Menu();
+        m_suats = new java.awt.Menu();
+        m_xoats = new java.awt.Menu();
+        menuItem1 = new java.awt.MenuItem();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -290,17 +293,34 @@ int vtri = i;String schoice = "", uchoice = "";
         add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 120, -1));
         add(choice_ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 120, -1));
 
-        menu1.setLabel("Thông tin thí sinh");
-        menuBar1.add(menu1);
+        button1.setLabel("button1");
+        add(button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
-        menu2.setLabel("Thêm thí sinh");
-        menuBar1.add(menu2);
+        m_ttts.setLabel("Thông tin thí sinh");
+        menuBar1.add(m_ttts);
 
-        menu3.setLabel("Sửa thí sinh");
-        menuBar1.add(menu3);
+        m_themts.setLabel("Thêm thí sinh");
+        menuBar1.add(m_themts);
 
-        menu4.setLabel("Xóa thí sinh");
-        menuBar1.add(menu4);
+        m_suats.setLabel("Sửa thí sinh");
+        menuBar1.add(m_suats);
+
+        m_xoats.setLabel("Xóa thí sinh");
+        m_xoats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_xoatsActionPerformed(evt);
+            }
+        });
+
+        menuItem1.setLabel("menuItem1");
+        menuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem1ActionPerformed(evt);
+            }
+        });
+        m_xoats.add(menuItem1);
+
+        menuBar1.add(m_xoats);
 
         setMenuBar(menuBar1);
 
@@ -588,6 +608,18 @@ int vtri = i;String schoice = "", uchoice = "";
         }
     }//GEN-LAST:event_txt_sonhaKeyTyped
 
+    private void m_xoatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_xoatsActionPerformed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_m_xoatsActionPerformed
+
+    private void menuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem1ActionPerformed
+        // TODO add your handling code here:
+      
+        
+    }//GEN-LAST:event_menuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -611,6 +643,7 @@ int vtri = i;String schoice = "", uchoice = "";
     private java.awt.Button btn_next;
     private java.awt.Button btn_sua;
     private java.awt.Button btn_timkiem;
+    private java.awt.Button button1;
     private java.awt.Choice choice1;
     private java.awt.Choice choice_ut;
     private java.awt.Label label1;
@@ -625,11 +658,12 @@ int vtri = i;String schoice = "", uchoice = "";
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
-    private java.awt.Menu menu1;
-    private java.awt.Menu menu2;
-    private java.awt.Menu menu3;
-    private java.awt.Menu menu4;
+    private java.awt.Menu m_suats;
+    private java.awt.Menu m_themts;
+    private java.awt.Menu m_ttts;
+    private java.awt.Menu m_xoats;
     private java.awt.MenuBar menuBar1;
+    private java.awt.MenuItem menuItem1;
     private java.awt.Panel panel1;
     private java.awt.TextArea tar_ttthisinh;
     private java.awt.TextField txt_duong;

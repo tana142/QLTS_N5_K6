@@ -4,25 +4,38 @@
   <NonVisualComponents>
     <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
-        <Menu class="java.awt.Menu" name="menu1">
+        <Menu class="java.awt.Menu" name="m_ttts">
           <Properties>
             <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
           </Properties>
         </Menu>
-        <Menu class="java.awt.Menu" name="menu2">
+        <Menu class="java.awt.Menu" name="m_themts">
           <Properties>
             <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
           </Properties>
         </Menu>
-        <Menu class="java.awt.Menu" name="menu3">
+        <Menu class="java.awt.Menu" name="m_suats">
           <Properties>
             <Property name="label" type="java.lang.String" value="S&#x1eed;a th&#xed; sinh"/>
           </Properties>
         </Menu>
-        <Menu class="java.awt.Menu" name="menu4">
+        <Menu class="java.awt.Menu" name="m_xoats">
           <Properties>
             <Property name="label" type="java.lang.String" value="X&#xf3;a th&#xed; sinh"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="m_xoatsActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="java.awt.MenuItem" name="menuItem1">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="menuItem1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -350,6 +363,16 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="90" y="350" width="120" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="java.awt.Button" name="button1">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="button1"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="110" y="70" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
