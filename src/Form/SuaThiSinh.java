@@ -738,7 +738,8 @@ int vtri = i;String schoice = "", uchoice = "";
     }//GEN-LAST:event_m_xoatsActionPerformed
 
     private void nav_xoatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nav_xoatsActionPerformed
-        // TODO add your handling code here:
+        new XoaThiSinh().setVisible(true);
+        dispose();
       
     }//GEN-LAST:event_nav_xoatsActionPerformed
 
