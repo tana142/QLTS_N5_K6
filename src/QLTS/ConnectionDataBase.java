@@ -18,7 +18,7 @@ public class ConnectionDataBase {
         try {
             //jdbc:sqlserver://localhost:1433;databaseName=QLU
             //jdbc:sqlserver://LocalHost:1433;databaseName=QLTS
-            final String url= "//jdbc:sqlserver://LocalHost:1433;databaseName=QLTS";
+            final String url= "jdbc:sqlserver://localhost:1433;databaseName=QLTS";
             final String user = "sa";
             final String pass = "sa123";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
