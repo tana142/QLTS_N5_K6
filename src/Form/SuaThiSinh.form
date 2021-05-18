@@ -13,6 +13,9 @@
               <Properties>
                 <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1;c th&#xed; sinh"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
               <Properties>

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,9 +27,10 @@ public class XoaThiSinh extends java.awt.Frame {
     static ConnectionDataBase conn = new ConnectionDataBase();
     static UpdatePrepareStatement prepareStatement;
     static ExecuteStatement executeStatement;
+    static final int MAX_LENGTH = 15;
     static int index = -1;
     static int index_begin = 0;
-    static int index_end = 20;
+    static int index_end = MAX_LENGTH;
     
     public XoaThiSinh() {
         initComponents();
@@ -223,6 +225,11 @@ public class XoaThiSinh extends java.awt.Frame {
         menuTrangChu.setLabel("Trang chủ");
 
         menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuItemThongTinTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemThongTinTSActionPerformed(evt);
+            }
+        });
         menuTrangChu.add(menuItemThongTinTS);
 
         menuItemThoat.setLabel("Thoát chương trình");
@@ -300,12 +307,12 @@ public class XoaThiSinh extends java.awt.Frame {
         tfTimKiem.setText("");
         tf_sbd.setText("");
         
-        if(arrTS.size() <= 20)
+        if(arrTS.size() <= MAX_LENGTH)
             btnNext.setEnabled(false);
         else btnNext.setEnabled(true); 
         
         index_begin = 0;
-        index_end = 20;
+        index_end = MAX_LENGTH;
         loadForm(index_begin,index_end);
     }//GEN-LAST:event_btnHienTatCaActionPerformed
 
@@ -313,7 +320,7 @@ public class XoaThiSinh extends java.awt.Frame {
         
         btnBack.setEnabled(true);
         index_begin = index_end;
-        index_end +=20;
+        index_end +=MAX_LENGTH;
         
         loadForm(index_begin, index_end);
         
@@ -323,7 +330,7 @@ public class XoaThiSinh extends java.awt.Frame {
       
         btnNext.setEnabled(true);
         index_end = index_begin;
-        index_begin -=20;
+        index_begin -=MAX_LENGTH;
         
         loadForm(index_begin, index_end);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -342,13 +349,18 @@ public class XoaThiSinh extends java.awt.Frame {
             int sbd = Integer.valueOf(tf_sbd.getText().toString());
             for(int i=0;i<arrTS.size();i++){
                 if(sbd == arrTS.get(i).getSbd()){
-                    UpdatePrepareStatement.deleteTS(arrTS.get(i));
-                    System.out.println("Xoa thanh cong");
-                    //Load lại danh sách thí sinh
-                    index_begin = 0;
-                    index_end = 20;
-                    loadForm(index_begin,index_end);
-                    tf_sbd.setText("");
+//                    JFrame f = new JFrame();
+//                    int a = JOptionPane.showConfirmDialog(f,"Bạn chắn chắn muốn xóa","Thông báo",JOptionPane.QUESTION_MESSAGE,JOptionPane.OK_CANCEL_OPTION);
+//                    if(a == JOptionPane.OK_OPTION){
+                        UpdatePrepareStatement.deleteTS(arrTS.get(i));
+                        System.out.println("Xoa thanh cong");
+                        //Load lại danh sách thí sinh
+                        index_begin = 0;
+                        index_end = MAX_LENGTH;
+                        loadForm(index_begin,index_end);
+                        tf_sbd.setText("");
+//                    }
+                    
                 }
             }
         }catch(Exception e){
@@ -372,6 +384,11 @@ public class XoaThiSinh extends java.awt.Frame {
         }
         dispose();
     }//GEN-LAST:event_menuItemSuaActionPerformed
+
+    private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
+        new ThongTinThiSinh().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     /**
      * @param args the command line arguments

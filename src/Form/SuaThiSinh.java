@@ -328,6 +328,11 @@ int vtri = i;String schoice = "", uchoice = "";
         menuTrangChu.setLabel("Trang chủ");
 
         menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuItemThongTinTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemThongTinTSActionPerformed(evt);
+            }
+        });
         menuTrangChu.add(menuItemThongTinTS);
 
         menuItemThoat.setLabel("Thoát chương trình");
@@ -681,6 +686,11 @@ int vtri = i;String schoice = "", uchoice = "";
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_menuItemThoatActionPerformed
+
+    private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
+        new ThongTinThiSinh().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     /**
      * @param args the command line arguments

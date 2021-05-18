@@ -212,6 +212,11 @@ public class ThemThiSinh extends java.awt.Frame {
         menuTrangChu.setLabel("Trang chủ");
 
         menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuItemThongTinTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemThongTinTSActionPerformed(evt);
+            }
+        });
         menuTrangChu.add(menuItemThongTinTS);
 
         menuItemThoat.setLabel("Thoát chương trình");
@@ -700,6 +705,11 @@ System.out.println(index);
         xoa.show();
         dispose();
     }//GEN-LAST:event_menuItemXoaActionPerformed
+
+    private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
+        new ThongTinThiSinh().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     /**
      * @param args the command line arguments
