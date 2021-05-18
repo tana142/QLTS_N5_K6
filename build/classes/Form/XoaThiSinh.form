@@ -4,10 +4,22 @@
   <NonVisualComponents>
     <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
-        <Menu class="java.awt.Menu" name="menu1">
+        <Menu class="java.awt.Menu" name="menuTrangChu">
           <Properties>
-            <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="java.awt.MenuItem" name="menuItemThongTinTS">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1;c th&#xed; sinh"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="Tho&#xe1;t ch&#x1b0;&#x1a1;ng tr&#xec;nh"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="java.awt.Menu" name="menuChucNang">
           <Properties>
@@ -69,14 +81,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="label5" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnXoa" max="32767" attributes="0"/>
-                              <Component id="tf_sbd" pref="120" max="32767" attributes="0"/>
+                              <Component id="tf_sbd" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -86,19 +98,19 @@
                                   <Component id="btnBack" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="btnNext" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="165" max="32767" attributes="0"/>
                               </Group>
                               <Component id="tar_ttthisinh" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="411" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="458" max="-2" attributes="0"/>
                           <Component id="tfTimKiem" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Component id="btnTimKiem" min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
@@ -111,22 +123,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfTimKiem" max="32767" attributes="0"/>
-                                      <Component id="btnTimKiem" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="xoaThiSinh" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tfTimKiem" max="32767" attributes="0"/>
+                              <Component id="btnTimKiem" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="tar_ttthisinh" min="-2" pref="226" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                      <Component id="xoaThiSinh" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="tar_ttthisinh" min="-2" pref="226" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="tf_sbd" min="-2" max="-2" attributes="0"/>
                               <Component id="label5" min="-2" max="-2" attributes="0"/>
