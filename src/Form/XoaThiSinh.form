@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="java.awt.Menu" name="menu1">
           <Properties>
-            <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
           </Properties>
         </Menu>
         <Menu class="java.awt.Menu" name="menuChucNang">
