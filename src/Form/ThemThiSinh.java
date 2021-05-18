@@ -60,9 +60,7 @@ public class ThemThiSinh extends java.awt.Frame {
 
         textArea1 = new java.awt.TextArea();
         label1 = new java.awt.Label();
-        txt_sbd = new java.awt.TextField();
         txt_timkiem = new java.awt.TextField();
-        label2 = new java.awt.Label();
         label3 = new java.awt.Label();
         panel1 = new java.awt.Panel();
         txt_sonha = new java.awt.TextField();
@@ -84,6 +82,13 @@ public class ThemThiSinh extends java.awt.Frame {
         btn_back = new java.awt.Button();
         txt_hoten = new java.awt.TextField();
         label10 = new java.awt.Label();
+        menuBar2 = new java.awt.MenuBar();
+        menuTrangChu = new java.awt.Menu();
+        menuItemThongTinTS = new java.awt.MenuItem();
+        menuItemThoat = new java.awt.MenuItem();
+        menuChucNang = new java.awt.Menu();
+        menuItemSua = new java.awt.MenuItem();
+        menuItemXoa = new java.awt.MenuItem();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -100,8 +105,6 @@ public class ThemThiSinh extends java.awt.Frame {
                 txt_timkiemActionPerformed(evt);
             }
         });
-
-        label2.setText("SBD");
 
         label3.setText("Họ và Tên");
 
@@ -206,50 +209,83 @@ public class ThemThiSinh extends java.awt.Frame {
 
         label10.setText("Địa Chỉ");
 
+        menuTrangChu.setLabel("Trang chủ");
+
+        menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuTrangChu.add(menuItemThongTinTS);
+
+        menuItemThoat.setLabel("Thoát chương trình");
+        menuItemThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemThoatActionPerformed(evt);
+            }
+        });
+        menuTrangChu.add(menuItemThoat);
+
+        menuBar2.add(menuTrangChu);
+
+        menuChucNang.setLabel("Chức năng");
+
+        menuItemSua.setLabel("Sửa thí sinh");
+        menuItemSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSuaActionPerformed(evt);
+            }
+        });
+        menuChucNang.add(menuItemSua);
+
+        menuItemXoa.setLabel("Xóa thí sinh");
+        menuItemXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemXoaActionPerformed(evt);
+            }
+        });
+        menuChucNang.add(menuItemXoa);
+
+        menuBar2.add(menuChucNang);
+
+        setMenuBar(menuBar2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btn_them, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(choice_ut, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(39, 39, 39)
-                                    .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(146, 146, 146)
-                                    .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(72, 72, 72))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt_sbd, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32)
-                            .addComponent(btn_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txt_hoten, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 19, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(645, 645, 645)
+                        .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btn_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txt_hoten, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(choice_ut, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(btn_them, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(327, 327, 327)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
+                        .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,37 +293,39 @@ public class ThemThiSinh extends java.awt.Frame {
                 .addGap(23, 23, 23)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_sbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_hoten, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(choice_ut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(140, 140, 140)
+                                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(choice_ut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_them, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -330,7 +368,7 @@ public class ThemThiSinh extends java.awt.Frame {
             ss += arrTS.get(vtri).getUuTien() + "\t";
 
             tar_ttthisinh.setText(ss);
-            txt_sbd.setText(arrTS.get(vtri).getSbd() + "");
+//            txt_sbd.setText(arrTS.get(vtri).getSbd() + "");
             txt_hoten.setText(arrTS.get(vtri).getHoTen() + "");
             txt_sonha.setText(String.valueOf(arrTS.get(vtri).getDiaChi().getSoNha()));
             txt_duong.setText(arrTS.get(vtri).getDiaChi().getDuong());
@@ -359,7 +397,7 @@ public class ThemThiSinh extends java.awt.Frame {
 
         } else {
             tar_ttthisinh.setText("Số báo danh không hợp lệ");
-            txt_sbd.setText("");
+//            txt_sbd.setText("");
             txt_hoten.setText("");
             txt_sonha.setText("");
             txt_duong.setText("");
@@ -378,6 +416,56 @@ public class ThemThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_btn_timkiemActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
+//        System.out.println(index);
+//
+//        btn_back.setEnabled(true);
+//
+//        if (index < arrTS.size() - 1) {
+//            btn_next.setEnabled(true);
+//            index += 1;
+//            if (index == arrTS.size() - 1) {
+//                btn_next.setEnabled(false);
+//            }
+//
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(index).getSbd() + "\t";
+//            ss += arrTS.get(index).getHoTen() + "\t";
+//            ss += "Khối " + arrTS.get(index).getKhoi().getTenKhoi() + "\t";
+//            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
+//            ss += arrTS.get(index).getUuTien() + "\t";
+//
+//            tar_ttthisinh.setText(ss);
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+//            schoice += arrTS.get(index).getKhoi().getTenKhoi().trim();
+//            uchoice += arrTS.get(index).getUuTien().trim();
+//
+//            //set index choice
+//            if (schoice.equals("A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("B")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
+//        } else {
+//            btn_next.setEnabled(false);
+//        }
+
         System.out.println(index);
 
         btn_back.setEnabled(true);
@@ -391,26 +479,26 @@ public class ThemThiSinh extends java.awt.Frame {
 
             String ss = "";
             String schoice = "", uchoice = "";
-            ss += arrTS.get(index).getSbd() + "\t";
-            ss += arrTS.get(index).getHoTen() + "\t";
-            ss += "Khối " + arrTS.get(index).getKhoi().getTenKhoi() + "\t";
-            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
-            ss += arrTS.get(index).getUuTien() + "\t";
+            ss += arrTS.get(index).getSbd() + "\n";
+            ss += arrTS.get(index).getHoTen() + "\n";
+            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
+            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
+            ss += arrTS.get(index).getUuTien() + "\n";
 
             tar_ttthisinh.setText(ss);
-            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
             txt_hoten.setText(arrTS.get(index).getHoTen() + "");
             txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
             txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
             txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
             txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
-            schoice += arrTS.get(index).getKhoi().getTenKhoi().trim();
-            uchoice += arrTS.get(index).getUuTien().trim();
+            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+            uchoice += arrTS.get(index).getUuTien().toString().trim();
 
             //set index choice
-            if (schoice.equals("A")) {
+            if (schoice.equals("Khối A")) {
                 choice1.select("Khối A");
-            } else if (schoice.equals("B")) {
+            } else if (schoice.equals("Khối B")) {
                 choice1.select("Khối B");
             } else {
                 choice1.select("Khối C");
@@ -431,7 +519,53 @@ public class ThemThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        System.out.println(index);
+//        System.out.println(index);
+//        btn_next.setEnabled(true);
+//        if (index >= 1) {
+//            btn_back.setEnabled(true);
+//            index -= 1;
+//            if (index == 0) {
+//                btn_back.setEnabled(false);
+//            }
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(index).getSbd() + "\t";
+//            ss += arrTS.get(index).getHoTen() + "\t";
+//            ss += "Khối " + arrTS.get(index).getKhoi().getTenKhoi() + "\t";
+//            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
+//            ss += arrTS.get(index).getUuTien() + "\t";
+//
+//            tar_ttthisinh.setText(ss);
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+//            schoice += arrTS.get(index).getKhoi().getTenKhoi().trim();
+//            uchoice += arrTS.get(index).getUuTien().trim();
+//
+//            //set index choice
+//            if (schoice.equals("A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("B")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
+//        } else {
+//            btn_back.setEnabled(false);
+//        }        // TODO add your handling code here:
+System.out.println(index);
         btn_next.setEnabled(true);
         if (index >= 1) {
             btn_back.setEnabled(true);
@@ -441,26 +575,26 @@ public class ThemThiSinh extends java.awt.Frame {
             }
             String ss = "";
             String schoice = "", uchoice = "";
-            ss += arrTS.get(index).getSbd() + "\t";
-            ss += arrTS.get(index).getHoTen() + "\t";
-            ss += "Khối " + arrTS.get(index).getKhoi().getTenKhoi() + "\t";
-            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
-            ss += arrTS.get(index).getUuTien() + "\t";
+            ss += arrTS.get(index).getSbd() + "\n";
+            ss += arrTS.get(index).getHoTen() + "\n";
+            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
+            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
+            ss += arrTS.get(index).getUuTien() + "\n";
 
             tar_ttthisinh.setText(ss);
-            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
             txt_hoten.setText(arrTS.get(index).getHoTen() + "");
             txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
             txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
             txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
             txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
-            schoice += arrTS.get(index).getKhoi().getTenKhoi().trim();
-            uchoice += arrTS.get(index).getUuTien().trim();
+            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+            uchoice += arrTS.get(index).getUuTien().toString().trim();
 
             //set index choice
-            if (schoice.equals("A")) {
+            if (schoice.equals("Khối A")) {
                 choice1.select("Khối A");
-            } else if (schoice.equals("B")) {
+            } else if (schoice.equals("KhốiB")) {
                 choice1.select("Khối B");
             } else {
                 choice1.select("Khối C");
@@ -476,13 +610,13 @@ public class ThemThiSinh extends java.awt.Frame {
             }
         } else {
             btn_back.setEnabled(false);
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         // TODO add your handling code here:
-        int idKhoi = 0;
-        int sbd = Integer.valueOf(txt_sbd.getText().trim());
+        
+//        int sbd = Integer.valueOf(txt_sbd.getText().trim());
         String hoTen = txt_hoten.getText();
         int soNha = Integer.valueOf(txt_sonha.getText().trim());
         String duong = txt_duong.getText().trim();
@@ -493,12 +627,13 @@ public class ThemThiSinh extends java.awt.Frame {
 
         QLTS.DiaChi dc = new QLTS.DiaChi(soNha, duong, quan, thanhPho);
         QLTS.Khoi k = new QLTS.Khoi(khoi);
-        QLTS.ThiSinh TS = new QLTS.ThiSinh(sbd, hoTen, k, dc, uuTien);
+        QLTS.ThiSinh TS = new QLTS.ThiSinh(hoTen, k, dc, uuTien);
         int check = UpdatePrepareStatement.insertTS(TS);
         if (check != -1) {
+            
             System.out.println("Them thanh cong");
             arrTS = executeStatement.selectThiSinh();
-
+            index = arrTS.size()-1;
             String ss = "";
             String schoice = "", uchoice = "";
             ss += arrTS.get(index).getSbd() + "\t";
@@ -508,7 +643,7 @@ public class ThemThiSinh extends java.awt.Frame {
             ss += arrTS.get(index).getUuTien() + "\t";
 
             tar_ttthisinh.setText(ss);
-            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
             txt_hoten.setText(arrTS.get(index).getHoTen() + "");
             txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
             txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
@@ -540,6 +675,32 @@ public class ThemThiSinh extends java.awt.Frame {
 
     }//GEN-LAST:event_btn_themActionPerformed
 
+    private void menuItemThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThoatActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_menuItemThoatActionPerformed
+
+    private void menuItemSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSuaActionPerformed
+        try {
+            // TODO add your handling code here:
+            SuaThiSinh sua = new SuaThiSinh();
+            sua.show();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ThemThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ThemThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+    }//GEN-LAST:event_menuItemSuaActionPerformed
+
+    private void menuItemXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemXoaActionPerformed
+        // TODO add your handling code here:
+        XoaThiSinh xoa = new XoaThiSinh();
+        xoa.show();
+        dispose();
+    }//GEN-LAST:event_menuItemXoaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -562,7 +723,6 @@ public class ThemThiSinh extends java.awt.Frame {
     private java.awt.Choice choice_ut;
     private java.awt.Label label1;
     private java.awt.Label label10;
-    private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Label label4;
     private java.awt.Label label5;
@@ -570,13 +730,19 @@ public class ThemThiSinh extends java.awt.Frame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
+    private java.awt.MenuBar menuBar2;
+    private java.awt.Menu menuChucNang;
+    private java.awt.MenuItem menuItemSua;
+    private java.awt.MenuItem menuItemThoat;
+    private java.awt.MenuItem menuItemThongTinTS;
+    private java.awt.MenuItem menuItemXoa;
+    private java.awt.Menu menuTrangChu;
     private java.awt.Panel panel1;
     private java.awt.TextArea tar_ttthisinh;
     private java.awt.TextArea textArea1;
     private java.awt.TextField txt_duong;
     private java.awt.TextField txt_hoten;
     private java.awt.TextField txt_quan;
-    private java.awt.TextField txt_sbd;
     private java.awt.TextField txt_sonha;
     private java.awt.TextField txt_thanhpho;
     private java.awt.TextField txt_timkiem;

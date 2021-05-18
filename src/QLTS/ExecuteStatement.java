@@ -23,7 +23,7 @@ public class ExecuteStatement {
             ResultSet rs = null;
             Connection  conn = ConnectionDataBase.getConnectDB();
             String s = "select SBD,HoTen,SoNha,Duong,Quan,ThanhPho,TenKhoi,Mon1,Mon2, Mon3, UuTien \n"
-                + "	from ThiSinh inner join DiaChi on ThiSinh.IdDiaChi = DiaChi.IdDiaChi\n"
+                + "	from ThiSinh inner join DiaChi on ThiSinh.SBD = DiaChi.IdDiaChi\n"
                 + "	inner join Khoi on ThiSinh.IdKhoi = Khoi.IdKhoi";
             stm = conn.createStatement();
              rs = stm.executeQuery(s);

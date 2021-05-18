@@ -133,18 +133,17 @@ public class UpdatePrepareStatement {
     }
 
     //insert
-    public static void insertDC(int id, int soNha, String duong, String quan, String thanhPho) {
+    public static void insertDC( int soNha, String duong, String quan, String thanhPho) {
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String updatedc = "INSERT INTO DiaChi(IdDiaChi, SoNha, Duong, Quan, ThanhPho)\n"
-                    + "VALUES (?,?,?,?,?)";
+            String updatedc = "INSERT INTO DiaChi( SoNha, Duong, Quan, ThanhPho)\n"
+                    + "VALUES (?,?,?,?)";
 
             PreparedStatement preparedStatement = conn.prepareStatement(updatedc);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setInt(2, soNha);
-            preparedStatement.setString(3, duong);
-            preparedStatement.setString(4, quan);
-            preparedStatement.setString(5, thanhPho);
+            preparedStatement.setInt(1, soNha);
+            preparedStatement.setString(2, duong);
+            preparedStatement.setString(3, quan);
+            preparedStatement.setString(4, thanhPho);
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
             conn.close();
@@ -176,17 +175,16 @@ public class UpdatePrepareStatement {
 
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String updatets = "INSERT INTO ThiSinh(SBD, HoTen, IdDiaChi,IdKhoi,UuTien)\n"
-                    + "VALUES (?,?,?,?,?)";
+            String updatets = "INSERT INTO ThiSinh( HoTen, IdDiaChi,IdKhoi,UuTien)\n"
+                    + "VALUES (?,?,?,?)";
 //            
-            insertDC(sbd, soNha, duong, quan, thanhPho);
+            insertDC(soNha, duong, quan, thanhPho);
 
             PreparedStatement preparedStatement = conn.prepareStatement(updatets);
-            preparedStatement.setInt(1, sbd);
-            preparedStatement.setString(2, hoTen);
-            preparedStatement.setInt(3, sbd);
-            preparedStatement.setInt(4, idKhoi);
-            preparedStatement.setString(5, uuTien);
+            preparedStatement.setString(1, hoTen);
+            preparedStatement.setInt(2, sbd);
+            preparedStatement.setInt(3, idKhoi);
+            preparedStatement.setString(4, uuTien);
 
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);

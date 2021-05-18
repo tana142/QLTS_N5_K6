@@ -10,6 +10,13 @@ package QLTS;public class ThiSinh {
     public ThiSinh() {
     }
 
+    public ThiSinh(String hoTen, Khoi khoi, DiaChi diaChi, String uuTien) {
+        this.hoTen = hoTen;
+        this.khoi = khoi;
+        this.diaChi = diaChi;
+        this.uuTien = uuTien;
+    }
+
     public ThiSinh(int sbd, String hoTen, Khoi khoi, DiaChi diaChi, String uuTien) {
         this.sbd = sbd;
         this.hoTen = hoTen;
