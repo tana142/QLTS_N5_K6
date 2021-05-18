@@ -28,7 +28,7 @@ public class XoaThiSinh extends java.awt.Frame {
     static ExecuteStatement executeStatement;
     static int index = -1;
     static int index_begin = 0;
-    static int index_end = 5;
+    static int index_end = 20;
     
     public XoaThiSinh() {
         initComponents();
@@ -293,12 +293,12 @@ public class XoaThiSinh extends java.awt.Frame {
         tfTimKiem.setText("");
         tf_sbd.setText("");
         
-        if(arrTS.size() <= 5)
+        if(arrTS.size() <= 20)
             btnNext.setEnabled(false);
         else btnNext.setEnabled(true); 
         
         index_begin = 0;
-        index_end = 5;
+        index_end = 20;
         loadForm(index_begin,index_end);
     }//GEN-LAST:event_btnHienTatCaActionPerformed
 
@@ -306,7 +306,7 @@ public class XoaThiSinh extends java.awt.Frame {
         
         btnBack.setEnabled(true);
         index_begin = index_end;
-        index_end +=5;
+        index_end +=20;
         
         loadForm(index_begin, index_end);
         
@@ -316,7 +316,7 @@ public class XoaThiSinh extends java.awt.Frame {
       
         btnNext.setEnabled(true);
         index_end = index_begin;
-        index_begin -=5;
+        index_begin -=20;
         
         loadForm(index_begin, index_end);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -339,7 +339,7 @@ public class XoaThiSinh extends java.awt.Frame {
                     System.out.println("Xoa thanh cong");
                     //Load lại danh sách thí sinh
                     index_begin = 0;
-                    index_end = 5;
+                    index_end = 20;
                     loadForm(index_begin,index_end);
                     tf_sbd.setText("");
                 }
