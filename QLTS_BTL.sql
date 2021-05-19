@@ -2,6 +2,17 @@
 go 
 use QLTS
 go
+-- bang user
+CREATE TABLE TaiKhoan
+(
+	IdDiaChi INTEGER IDENTITY(10000,1) PRIMARY KEY
+	,Username VARCHAR(50)   not null
+	,Pass VARCHAR(50) not null 
+)
+INSERT INTO TaiKhoan VALUES
+	('quantrivien','admin_qtv')
+	,('admin','admin')
+
 CREATE TABLE DiaChi
 (
 	IdDiaChi INTEGER IDENTITY(10000,1) PRIMARY KEY
@@ -33,7 +44,7 @@ CREATE TABLE Khoi
 	,Mon2 NVARCHAR(10) not null
 	,Mon3 NVARCHAR(10) not null
 )
-drop table Khoi
+--drop table Khoi
 --delete Khoi
 
 INSERT INTO Khoi

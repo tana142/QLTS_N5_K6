@@ -5,17 +5,29 @@
  */
 package Form;
 
+import static Form.SuaThiSinh.arrTS;
+import static Form.SuaThiSinh.executeStatement;
+import QLTS.ExecuteStatement;
+import QLTS.User;
+import java.util.ArrayList;
+
 /**
  *
  * @author buida
  */
 public class DangNhap extends java.awt.Frame {
+    
+    ArrayList<User> arrUser = new ArrayList<>();
+    static ExecuteStatement executeStatement;
+    
+    
 
     /**
      * Creates new form DangNhap
      */
     public DangNhap() {
         initComponents();
+         arrUser = executeStatement.selectUser();
     }
 
     /**
@@ -29,8 +41,9 @@ public class DangNhap extends java.awt.Frame {
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
-        textField1 = new java.awt.TextField();
-        textField2 = new java.awt.TextField();
+        txt_taikhoan = new java.awt.TextField();
+        txt_matkhau = new java.awt.TextField();
+        button_dangnhap = new java.awt.Button();
 
         setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(390, 250));
@@ -52,8 +65,16 @@ public class DangNhap extends java.awt.Frame {
 
         label3.setText("Mật khẩu");
         add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
-        add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 95, 107, -1));
-        add(textField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 154, 111, -1));
+        add(txt_taikhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 95, 130, -1));
+        add(txt_matkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 154, 130, -1));
+
+        button_dangnhap.setLabel("Đăng nhập");
+        button_dangnhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_dangnhapActionPerformed(evt);
+            }
+        });
+        add(button_dangnhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -64,6 +85,25 @@ public class DangNhap extends java.awt.Frame {
     private void exitForm(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_exitForm
         System.exit(0);
     }//GEN-LAST:event_exitForm
+
+    private void button_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dangnhapActionPerformed
+        
+        String tk = txt_taikhoan.getText().trim();
+        String mk = txt_matkhau.getText().trim();
+        boolean check = false;
+        for (User user : arrUser) {
+            if(user.getUserName() == tk && user.getPassWord()== mk){
+                check = true;
+                break;
+            }
+        }
+        
+        if(check){
+            //chuyen sang chuc nang
+        }else{
+            //thong bao dang nhap khong thanh cong
+        }
+    }//GEN-LAST:event_button_dangnhapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,10 +118,11 @@ public class DangNhap extends java.awt.Frame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button button_dangnhap;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField2;
+    private java.awt.TextField txt_matkhau;
+    private java.awt.TextField txt_taikhoan;
     // End of variables declaration//GEN-END:variables
 }
