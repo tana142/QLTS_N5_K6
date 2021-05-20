@@ -2,6 +2,60 @@
 
 <Form version="1.2" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.FrameFormInfo">
   <NonVisualComponents>
+    <Menu class="java.awt.PopupMenu" name="popupMenu_ChucNamg">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
+        <Property name="name" type="java.lang.String" value=""/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+        <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="Form"/>
+        </Property>
+      </AccessibilityProperties>
+      <SubComponents>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_TTTS">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="popupMenu_ChucNamg"/>
+            </Property>
+          </AccessibilityProperties>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="popupMenu_ChucNamg"/>
+            </Property>
+          </AccessibilityProperties>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Xoa">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="X&#xf3;a th&#xed; sinh"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="popupMenu_ChucNamg"/>
+            </Property>
+          </AccessibilityProperties>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Tho&#xe1;t"/>
+          </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="popupMenu_ChucNamg"/>
+            </Property>
+          </AccessibilityProperties>
+        </MenuItem>
+      </SubComponents>
+    </Menu>
     <Menu class="java.awt.MenuBar" name="menuBar2">
       <SubComponents>
         <Menu class="java.awt.Menu" name="menuTrangChu">
@@ -65,6 +119,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseClicked"/>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="exitForm"/>
   </Events>
   <AuxValues>
@@ -275,7 +330,7 @@
     <Container class="java.awt.Panel" name="panel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+          <Color blue="99" green="99" red="99" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
