@@ -105,6 +105,8 @@ public class DangNhap extends java.awt.Frame {
         if(check == true){
             System.out.println("Đăng nhập thành công");
             //chuyen sang chuc nang
+            
+            
         }else{
             System.out.println("Tài khoản hoặc mật khẩu không đúng");
             //thong bao dang nhap khong thanh cong

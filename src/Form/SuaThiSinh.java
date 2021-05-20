@@ -46,6 +46,10 @@ public class SuaThiSinh extends java.awt.Frame {
         choice_ut.addItem("Nhóm 1");
         choice_ut.addItem("Nhóm 2");
         choice_ut.addItem("Nhóm 3");
+//        
+        this.add(popupMenu_ChucNamg);
+        
+        
 
         arrTS = executeStatement.selectThiSinh();
 //        Connection conn = (Connection) connect.getConnectDB();
@@ -129,6 +133,11 @@ int vtri = i;String schoice = "", uchoice = "";
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMenu_ChucNamg = new java.awt.PopupMenu();
+        menuItem_pu_TTTS = new java.awt.MenuItem();
+        menuItem_pu_Them = new java.awt.MenuItem();
+        menuItem_pu_Xoa = new java.awt.MenuItem();
+        menuItem_pu_Thoat = new java.awt.MenuItem();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         txt_timkiem = new java.awt.TextField();
@@ -163,9 +172,36 @@ int vtri = i;String schoice = "", uchoice = "";
         menuItemThem = new java.awt.MenuItem();
         menuItemXoa = new java.awt.MenuItem();
 
+        popupMenu_ChucNamg.setLabel("Chức năng");
+        popupMenu_ChucNamg.setName("");
+
+        menuItem_pu_TTTS.setLabel("Trang chủ");
+        popupMenu_ChucNamg.add(menuItem_pu_TTTS);
+        menuItem_pu_TTTS.getAccessibleContext().setAccessibleParent(popupMenu_ChucNamg);
+
+        menuItem_pu_Them.setLabel("Thêm thí sinh");
+        popupMenu_ChucNamg.add(menuItem_pu_Them);
+        menuItem_pu_Them.getAccessibleContext().setAccessibleParent(popupMenu_ChucNamg);
+
+        menuItem_pu_Xoa.setLabel("Xóa thí sinh");
+        popupMenu_ChucNamg.add(menuItem_pu_Xoa);
+        menuItem_pu_Xoa.getAccessibleContext().setAccessibleParent(popupMenu_ChucNamg);
+
+        menuItem_pu_Thoat.setLabel("Thoát");
+        popupMenu_ChucNamg.add(menuItem_pu_Thoat);
+        menuItem_pu_Thoat.getAccessibleContext().setAccessibleParent(popupMenu_ChucNamg);
+
+        popupMenu_ChucNamg.getAccessibleContext().setAccessibleDescription("");
+        popupMenu_ChucNamg.getAccessibleContext().setAccessibleParent(this);
+
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(1000, 650));
         setTitle("Sửa thông tin thí sinh");
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -254,7 +290,7 @@ int vtri = i;String schoice = "", uchoice = "";
         add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 396, 120, -1));
         add(choice_ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 356, 120, -1));
 
-        panel2.setBackground(new java.awt.Color(204, 204, 204));
+        panel2.setBackground(new java.awt.Color(153, 153, 153));
 
         txt_sonha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -682,6 +718,13 @@ int vtri = i;String schoice = "", uchoice = "";
         dispose();
     }//GEN-LAST:event_menuItemThoatActionPerformed
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+      
+            // TODO add your handling code here:
+            popupMenu_ChucNamg.show(this, evt.getX(), evt.getY());
+       
+    }//GEN-LAST:event_formMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -724,8 +767,13 @@ int vtri = i;String schoice = "", uchoice = "";
     private java.awt.MenuItem menuItemThoat;
     private java.awt.MenuItem menuItemThongTinTS;
     private java.awt.MenuItem menuItemXoa;
+    private java.awt.MenuItem menuItem_pu_TTTS;
+    private java.awt.MenuItem menuItem_pu_Them;
+    private java.awt.MenuItem menuItem_pu_Thoat;
+    private java.awt.MenuItem menuItem_pu_Xoa;
     private java.awt.Menu menuTrangChu;
     private java.awt.Panel panel2;
+    private java.awt.PopupMenu popupMenu_ChucNamg;
     private java.awt.TextArea tar_ttthisinh;
     private java.awt.TextField txt_duong;
     private java.awt.TextField txt_hoten;
