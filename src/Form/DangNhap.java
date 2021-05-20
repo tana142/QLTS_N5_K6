@@ -90,17 +90,23 @@ public class DangNhap extends java.awt.Frame {
         
         String tk = txt_taikhoan.getText().trim();
         String mk = txt_matkhau.getText().trim();
+        
+        System.out.println("tk: " + tk);
+        System.out.println("mk: " + mk);
         boolean check = false;
-        for (User user : arrUser) {
-            if(user.getUserName() == tk && user.getPassWord()== mk){
+        for (int i = 0; i < arrUser.size(); i++) {
+            System.out.println(arrUser.get(i).getUserName() + " " + arrUser.get(i).getPassWord());
+            if(arrUser.get(i).getUserName().toString().equals(tk) && arrUser.get(i).getPassWord().toString().equals(mk)){
                 check = true;
                 break;
             }
         }
         
-        if(check){
+        if(check == true){
+            System.out.println("Đăng nhập thành công");
             //chuyen sang chuc nang
         }else{
+            System.out.println("Tài khoản hoặc mật khẩu không đúng");
             //thong bao dang nhap khong thanh cong
         }
     }//GEN-LAST:event_button_dangnhapActionPerformed
