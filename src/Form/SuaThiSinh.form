@@ -23,6 +23,9 @@
               <ComponentRef name="popupMenu_ChucNamg"/>
             </Property>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_TTTSActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
           <Properties>
@@ -33,6 +36,9 @@
               <ComponentRef name="popupMenu_ChucNamg"/>
             </Property>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThemActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Xoa">
           <Properties>
@@ -43,6 +49,9 @@
               <ComponentRef name="popupMenu_ChucNamg"/>
             </Property>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_XoaActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
           <Properties>
@@ -53,6 +62,9 @@
               <ComponentRef name="popupMenu_ChucNamg"/>
             </Property>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThoatActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Menu>
@@ -67,6 +79,9 @@
               <Properties>
                 <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1;c th&#xed; sinh"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
               <Properties>
@@ -132,7 +147,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,7,0,0,3,14"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,31,0,0,4,32"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">

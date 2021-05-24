@@ -39,13 +39,15 @@ public class ThemThiSinh extends java.awt.Frame {
      */
     public ThemThiSinh() {
         initComponents();
-         choice1.addItem("Khối A");
+        choice1.addItem("Khối A");
         choice1.addItem("Khối B");
         choice1.addItem("Khối C");
 
         choice_ut.addItem("Nhóm 1");
         choice_ut.addItem("Nhóm 2");
         choice_ut.addItem("Nhóm 3");
+        
+        this.add(popupMenu_ChucNamg);
 
         arrTS = executeStatement.selectThiSinh();
     }
@@ -58,7 +60,11 @@ public class ThemThiSinh extends java.awt.Frame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textArea1 = new java.awt.TextArea();
+        popupMenu_ChucNamg = new java.awt.PopupMenu();
+        menuItem_pu_TTTS = new java.awt.MenuItem();
+        menuItem_pu_Them = new java.awt.MenuItem();
+        menuItem_pu_Xoa = new java.awt.MenuItem();
+        menuItem_pu_Thoat = new java.awt.MenuItem();
         label1 = new java.awt.Label();
         txt_timkiem = new java.awt.TextField();
         label3 = new java.awt.Label();
@@ -90,6 +96,46 @@ public class ThemThiSinh extends java.awt.Frame {
         menuItemSua = new java.awt.MenuItem();
         menuItemXoa = new java.awt.MenuItem();
 
+        popupMenu_ChucNamg.setLabel("Chức năng");
+        popupMenu_ChucNamg.setName("");
+
+        menuItem_pu_TTTS.setLabel("Trang chủ");
+        menuItem_pu_TTTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_TTTSActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_TTTS);
+
+        menuItem_pu_Them.setLabel("Thêm thí sinh");
+        menuItem_pu_Them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_ThemActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Them);
+
+        menuItem_pu_Xoa.setLabel("Xóa thí sinh");
+        menuItem_pu_Xoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_XoaActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Xoa);
+
+        menuItem_pu_Thoat.setLabel("Thoát");
+        menuItem_pu_Thoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_ThoatActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Thoat);
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -105,6 +151,11 @@ public class ThemThiSinh extends java.awt.Frame {
                 txt_timkiemActionPerformed(evt);
             }
         });
+        txt_timkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_timkiemKeyTyped(evt);
+            }
+        });
 
         label3.setText("Họ và Tên");
 
@@ -113,6 +164,11 @@ public class ThemThiSinh extends java.awt.Frame {
         txt_sonha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_sonhaActionPerformed(evt);
+            }
+        });
+        txt_sonha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_sonhaKeyTyped(evt);
             }
         });
 
@@ -212,6 +268,11 @@ public class ThemThiSinh extends java.awt.Frame {
         menuTrangChu.setLabel("Trang chủ");
 
         menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuItemThongTinTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemThongTinTSActionPerformed(evt);
+            }
+        });
         menuTrangChu.add(menuItemThongTinTS);
 
         menuItemThoat.setLabel("Thoát chương trình");
@@ -359,41 +420,42 @@ public class ThemThiSinh extends java.awt.Frame {
             }
         }
         if (tk == true) {
-            String ss = "";
-            String schoice = "", uchoice = "";
-            ss += arrTS.get(vtri).getSbd() + "\t";
-            ss += arrTS.get(vtri).getHoTen() + "\t";
-            ss += "Khối " + arrTS.get(vtri).getKhoi().getTenKhoi() + "\t";
-            ss += arrTS.get(vtri).getDiaChi().getThanhPho() + "\t";
-            ss += arrTS.get(vtri).getUuTien() + "\t";
-
-            tar_ttthisinh.setText(ss);
-//            txt_sbd.setText(arrTS.get(vtri).getSbd() + "");
-            txt_hoten.setText(arrTS.get(vtri).getHoTen() + "");
-            txt_sonha.setText(String.valueOf(arrTS.get(vtri).getDiaChi().getSoNha()));
-            txt_duong.setText(arrTS.get(vtri).getDiaChi().getDuong());
-            txt_quan.setText(arrTS.get(vtri).getDiaChi().getQuan());
-            txt_thanhpho.setText(arrTS.get(vtri).getDiaChi().getThanhPho());
-            schoice += arrTS.get(vtri).getKhoi().getTenKhoi().toString().trim();
-            uchoice += arrTS.get(vtri).getUuTien().toString().trim();
-
-            //set index choice
-            if (schoice.equals("A")) {
-                choice1.select("Khối A");
-            } else if (schoice.equals("B")) {
-                choice1.select("Khối B");
-            } else {
-                choice1.select("Khối C");
-            }
-            //set index choice uu tien
-            if (uchoice.equals("Nhóm 1")) {
-
-                choice_ut.select("Nhóm 1");
-            } else if (uchoice.equals("Nhóm 2")) {
-                choice_ut.select("Nhóm 2");
-            } else {
-                choice_ut.select("Nhóm 3");
-            }
+            hienThiThongTin();
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(vtri).getSbd() + "\t";
+//            ss += arrTS.get(vtri).getHoTen() + "\t";
+//            ss += "Khối " + arrTS.get(vtri).getKhoi().getTenKhoi() + "\t";
+//            ss += arrTS.get(vtri).getDiaChi().getThanhPho() + "\t";
+//            ss += arrTS.get(vtri).getUuTien() + "\t";
+//
+//            tar_ttthisinh.setText(ss);
+////            txt_sbd.setText(arrTS.get(vtri).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(vtri).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(vtri).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(vtri).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(vtri).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(vtri).getDiaChi().getThanhPho());
+//            schoice += arrTS.get(vtri).getKhoi().getTenKhoi().toString().trim();
+//            uchoice += arrTS.get(vtri).getUuTien().toString().trim();
+//
+//            //set index choice
+//            if (schoice.equals("A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("B")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
 
         } else {
             tar_ttthisinh.setText("Số báo danh không hợp lệ");
@@ -477,41 +539,42 @@ public class ThemThiSinh extends java.awt.Frame {
                 btn_next.setEnabled(false);
             }
 
-            String ss = "";
-            String schoice = "", uchoice = "";
-            ss += arrTS.get(index).getSbd() + "\n";
-            ss += arrTS.get(index).getHoTen() + "\n";
-            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
-            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
-            ss += arrTS.get(index).getUuTien() + "\n";
-
-            tar_ttthisinh.setText(ss);
-//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
-            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
-            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
-            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
-            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
-            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
-            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
-            uchoice += arrTS.get(index).getUuTien().toString().trim();
-
-            //set index choice
-            if (schoice.equals("Khối A")) {
-                choice1.select("Khối A");
-            } else if (schoice.equals("Khối B")) {
-                choice1.select("Khối B");
-            } else {
-                choice1.select("Khối C");
-            }
-            //set index choice uu tien
-            if (uchoice.equals("Nhóm 1")) {
-
-                choice_ut.select("Nhóm 1");
-            } else if (uchoice.equals("Nhóm 2")) {
-                choice_ut.select("Nhóm 2");
-            } else {
-                choice_ut.select("Nhóm 3");
-            }
+            hienThiThongTin();
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(index).getSbd() + "\n";
+//            ss += arrTS.get(index).getHoTen() + "\n";
+//            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
+//            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
+//            ss += arrTS.get(index).getUuTien() + "\n";
+//
+//            tar_ttthisinh.setText(ss);
+////            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+//            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+//            uchoice += arrTS.get(index).getUuTien().toString().trim();
+//
+//            //set index choice
+//            if (schoice.equals("Khối A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("Khối B")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
         } else {
             btn_next.setEnabled(false);
         }
@@ -555,6 +618,15 @@ public class ThemThiSinh extends java.awt.Frame {
 //            }
 //            //set index choice uu tien
 //            if (uchoice.equals("Nhóm 1")) {
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
+//        } else {
+//            btn_back.setEnabled(false);
+//        }        // TODO add your handling code here:
 //
 //                choice_ut.select("Nhóm 1");
 //            } else if (uchoice.equals("Nhóm 2")) {
@@ -565,7 +637,7 @@ public class ThemThiSinh extends java.awt.Frame {
 //        } else {
 //            btn_back.setEnabled(false);
 //        }        // TODO add your handling code here:
-System.out.println(index);
+        System.out.println(index);
         btn_next.setEnabled(true);
         if (index >= 1) {
             btn_back.setEnabled(true);
@@ -573,41 +645,42 @@ System.out.println(index);
             if (index == 0) {
                 btn_back.setEnabled(false);
             }
-            String ss = "";
-            String schoice = "", uchoice = "";
-            ss += arrTS.get(index).getSbd() + "\n";
-            ss += arrTS.get(index).getHoTen() + "\n";
-            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
-            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
-            ss += arrTS.get(index).getUuTien() + "\n";
-
-            tar_ttthisinh.setText(ss);
-//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
-            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
-            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
-            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
-            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
-            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
-            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
-            uchoice += arrTS.get(index).getUuTien().toString().trim();
-
-            //set index choice
-            if (schoice.equals("Khối A")) {
-                choice1.select("Khối A");
-            } else if (schoice.equals("KhốiB")) {
-                choice1.select("Khối B");
-            } else {
-                choice1.select("Khối C");
-            }
-            //set index choice uu tien
-            if (uchoice.equals("Nhóm 1")) {
-
-                choice_ut.select("Nhóm 1");
-            } else if (uchoice.equals("Nhóm 2")) {
-                choice_ut.select("Nhóm 2");
-            } else {
-                choice_ut.select("Nhóm 3");
-            }
+            hienThiThongTin();
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(index).getSbd() + "\n";
+//            ss += arrTS.get(index).getHoTen() + "\n";
+//            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\n";
+//            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
+//            ss += arrTS.get(index).getUuTien() + "\n";
+//
+//            tar_ttthisinh.setText(ss);
+////            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+//            schoice += arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+//            uchoice += arrTS.get(index).getUuTien().toString().trim();
+//
+//            //set index choice
+//            if (schoice.equals("Khối A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("KhốiB")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
         } else {
             btn_back.setEnabled(false);
         }
@@ -615,7 +688,11 @@ System.out.println(index);
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         // TODO add your handling code here:
-        
+        if (index == 0) {
+            btn_back.setEnabled(false);
+            btn_next.setEnabled(true);
+        }
+
 //        int sbd = Integer.valueOf(txt_sbd.getText().trim());
         String hoTen = txt_hoten.getText();
         int soNha = Integer.valueOf(txt_sonha.getText().trim());
@@ -630,45 +707,49 @@ System.out.println(index);
         QLTS.ThiSinh TS = new QLTS.ThiSinh(hoTen, k, dc, uuTien);
         int check = UpdatePrepareStatement.insertTS(TS);
         if (check != -1) {
-            
+
             System.out.println("Them thanh cong");
             arrTS = executeStatement.selectThiSinh();
-            index = arrTS.size()-1;
-            String ss = "";
-            String schoice = "", uchoice = "";
-            ss += arrTS.get(index).getSbd() + "\t";
-            ss += arrTS.get(index).getHoTen() + "\t";
-            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\t";
-            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
-            ss += arrTS.get(index).getUuTien() + "\t";
-
-            tar_ttthisinh.setText(ss);
-//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
-            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
-            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
-            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
-            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
-            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
-            schoice = arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
-            uchoice = arrTS.get(index).getUuTien().toString().trim();
-
-            //set index choice
-            if (schoice.equals("Khối A")) {
-                choice1.select("Khối A");
-            } else if (schoice.equals("Khối B")) {
-                choice1.select("Khối B");
-            } else {
-                choice1.select("Khối C");
+            index = arrTS.size() - 1;
+            hienThiThongTin();
+//            String ss = "";
+//            String schoice = "", uchoice = "";
+//            ss += arrTS.get(index).getSbd() + "\t";
+//            ss += arrTS.get(index).getHoTen() + "\t";
+//            ss += arrTS.get(index).getKhoi().getTenKhoi() + "\t";
+//            ss += arrTS.get(index).getDiaChi().getThanhPho() + "\t";
+//            ss += arrTS.get(index).getUuTien() + "\t";
+//
+//            tar_ttthisinh.setText(ss);
+////            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+//            txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+//            txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+//            txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+//            txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+//            txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+//            schoice = arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+//            uchoice = arrTS.get(index).getUuTien().toString().trim();
+//
+//            //set index choice
+//            if (schoice.equals("Khối A")) {
+//                choice1.select("Khối A");
+//            } else if (schoice.equals("Khối B")) {
+//                choice1.select("Khối B");
+//            } else {
+//                choice1.select("Khối C");
+//            }
+//            //set index choice uu tien
+//            if (uchoice.equals("Nhóm 1")) {
+//                choice_ut.select("Nhóm 1");
+//            } else if (uchoice.equals("Nhóm 2")) {
+//                choice_ut.select("Nhóm 2");
+//            } else {
+//                choice_ut.select("Nhóm 3");
+//            }
+            if (index == arrTS.size() - 1) {
+                btn_back.setEnabled(true);
+                btn_next.setEnabled(false);
             }
-            //set index choice uu tien
-            if (uchoice.equals("Nhóm 1")) {
-                choice_ut.select("Nhóm 1");
-            } else if (uchoice.equals("Nhóm 2")) {
-                choice_ut.select("Nhóm 2");
-            } else {
-                choice_ut.select("Nhóm 3");
-            }
-
         } else {
             System.out.println("them that bai");
         }
@@ -685,7 +766,7 @@ System.out.println(index);
             // TODO add your handling code here:
             SuaThiSinh sua = new SuaThiSinh();
             sua.show();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ThemThiSinh.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -700,6 +781,60 @@ System.out.println(index);
         xoa.show();
         dispose();
     }//GEN-LAST:event_menuItemXoaActionPerformed
+
+    private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
+        // TODO add your handling code here:
+        ThongTinThiSinh ttts = new ThongTinThiSinh();
+        ttts.show();
+        dispose();
+    }//GEN-LAST:event_menuItemThongTinTSActionPerformed
+
+    private void menuItem_pu_TTTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_TTTSActionPerformed
+        // TODO add your handling code here:
+        ThongTinThiSinh ttts = new ThongTinThiSinh();
+        ttts.show();
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_TTTSActionPerformed
+
+    private void menuItem_pu_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_ThemActionPerformed
+        // TODO add your handling code here:
+        ThemThiSinh them = new ThemThiSinh();
+        them.show();
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_ThemActionPerformed
+
+    private void menuItem_pu_XoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_XoaActionPerformed
+        // TODO add your handling code here:
+        XoaThiSinh xoa = new XoaThiSinh();
+        xoa.show();
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_XoaActionPerformed
+
+    private void menuItem_pu_ThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_ThoatActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_ThoatActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        popupMenu_ChucNamg.show(this, evt.getX(), evt.getY());
+    }//GEN-LAST:event_formMouseClicked
+
+    private void txt_timkiemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_timkiemKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || c == KeyEvent.VK_DELETE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_timkiemKeyTyped
+
+    private void txt_sonhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_sonhaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || (c == KeyEvent.VK_BACK_SPACE) || c == KeyEvent.VK_DELETE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_sonhaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -736,10 +871,14 @@ System.out.println(index);
     private java.awt.MenuItem menuItemThoat;
     private java.awt.MenuItem menuItemThongTinTS;
     private java.awt.MenuItem menuItemXoa;
+    private java.awt.MenuItem menuItem_pu_TTTS;
+    private java.awt.MenuItem menuItem_pu_Them;
+    private java.awt.MenuItem menuItem_pu_Thoat;
+    private java.awt.MenuItem menuItem_pu_Xoa;
     private java.awt.Menu menuTrangChu;
     private java.awt.Panel panel1;
+    private java.awt.PopupMenu popupMenu_ChucNamg;
     private java.awt.TextArea tar_ttthisinh;
-    private java.awt.TextArea textArea1;
     private java.awt.TextField txt_duong;
     private java.awt.TextField txt_hoten;
     private java.awt.TextField txt_quan;
@@ -747,4 +886,46 @@ System.out.println(index);
     private java.awt.TextField txt_thanhpho;
     private java.awt.TextField txt_timkiem;
     // End of variables declaration//GEN-END:variables
+public void hienThiThongTin() {
+        String ss = "";
+        String schoice = "", uchoice = "";
+        ss += arrTS.get(index).getSbd() + "\n";
+        ss += arrTS.get(index).getHoTen() + "\n";
+        ss += arrTS.get(index).getKhoi().getTenKhoi() + ": \t";
+        ss += arrTS.get(index).getKhoi().getMon1() + ", ";
+        ss += arrTS.get(index).getKhoi().getMon2() + ", ";
+        ss += arrTS.get(index).getKhoi().getMon3() + "\n";
+        ss += arrTS.get(index).getDiaChi().getSoNha() + ", ";
+        ss += arrTS.get(index).getDiaChi().getDuong() + ", ";
+        ss += arrTS.get(index).getDiaChi().getQuan() + ", ";
+        ss += arrTS.get(index).getDiaChi().getThanhPho() + "\n";
+        ss += arrTS.get(index).getUuTien() + "\n";
+
+        tar_ttthisinh.setText(ss);
+//            txt_sbd.setText(arrTS.get(index).getSbd() + "");
+        txt_hoten.setText(arrTS.get(index).getHoTen() + "");
+        txt_sonha.setText(String.valueOf(arrTS.get(index).getDiaChi().getSoNha()));
+        txt_duong.setText(arrTS.get(index).getDiaChi().getDuong());
+        txt_quan.setText(arrTS.get(index).getDiaChi().getQuan());
+        txt_thanhpho.setText(arrTS.get(index).getDiaChi().getThanhPho());
+        schoice = arrTS.get(index).getKhoi().getTenKhoi().toString().trim();
+        uchoice = arrTS.get(index).getUuTien().toString().trim();
+
+        //set index choice
+        if (schoice.equals("Khối A")) {
+            choice1.select("Khối A");
+        } else if (schoice.equals("Khối B")) {
+            choice1.select("Khối B");
+        } else {
+            choice1.select("Khối C");
+        }
+        //set index choice uu tien
+        if (uchoice.equals("Nhóm 1")) {
+            choice_ut.select("Nhóm 1");
+        } else if (uchoice.equals("Nhóm 2")) {
+            choice_ut.select("Nhóm 2");
+        } else {
+            choice_ut.select("Nhóm 3");
+        }
+    }
 }

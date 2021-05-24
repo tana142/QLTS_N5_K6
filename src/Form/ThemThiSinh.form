@@ -2,8 +2,46 @@
 
 <Form version="1.2" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.FrameFormInfo">
   <NonVisualComponents>
-    <Component class="java.awt.TextArea" name="textArea1">
-    </Component>
+    <Menu class="java.awt.PopupMenu" name="popupMenu_ChucNamg">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
+        <Property name="name" type="java.lang.String" value=""/>
+      </Properties>
+      <SubComponents>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_TTTS">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_TTTSActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThemActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Xoa">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="X&#xf3;a th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_XoaActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Tho&#xe1;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThoatActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Menu>
     <Menu class="java.awt.MenuBar" name="menuBar2">
       <SubComponents>
         <Menu class="java.awt.Menu" name="menuTrangChu">
@@ -15,6 +53,9 @@
               <Properties>
                 <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1;c th&#xed; sinh"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
               <Properties>
@@ -58,6 +99,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseClicked"/>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="exitForm"/>
   </Events>
   <AuxValues>
@@ -187,6 +229,7 @@
     <Component class="java.awt.TextField" name="txt_timkiem">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_timkiemActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_timkiemKeyTyped"/>
       </Events>
     </Component>
     <Component class="java.awt.Label" name="label3">
@@ -266,6 +309,7 @@
         <Component class="java.awt.TextField" name="txt_sonha">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_sonhaActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_sonhaKeyTyped"/>
           </Events>
         </Component>
         <Component class="java.awt.TextField" name="txt_thanhpho">
