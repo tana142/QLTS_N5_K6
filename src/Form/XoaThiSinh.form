@@ -4,10 +4,28 @@
   <NonVisualComponents>
     <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
-        <Menu class="java.awt.Menu" name="menu1">
+        <Menu class="java.awt.Menu" name="menuTrangChu">
           <Properties>
-            <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="java.awt.MenuItem" name="menuItemTTThiSinh">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemTTThiSinhActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="Tho&#xe1;t ch&#x1b0;&#x1a1;ng tr&#xec;nh"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThoatActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="java.awt.Menu" name="menuChucNang">
           <Properties>
@@ -59,6 +77,11 @@
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
     <Container class="java.awt.Panel" name="panel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -169,6 +192,9 @@
         </Component>
         <Component class="java.awt.Button" name="btnTimKiem">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="T&#xec;m Ki&#x1ebf;m"/>
           </Properties>
           <Events>
@@ -177,6 +203,12 @@
         </Component>
         <Component class="java.awt.Button" name="btnXoa">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="X&#xf3;a"/>
           </Properties>
           <Events>
@@ -198,6 +230,12 @@
         </Component>
         <Component class="java.awt.Button" name="btnHienTatCa">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="66" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="Hi&#x1ec7;n t&#x1ea5;t c&#x1ea3;"/>
           </Properties>
           <Events>
@@ -206,6 +244,9 @@
         </Component>
         <Component class="java.awt.Button" name="btnBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
@@ -214,6 +255,9 @@
         </Component>
         <Component class="java.awt.Button" name="btnNext">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="1"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="Next"/>
           </Properties>
           <Events>

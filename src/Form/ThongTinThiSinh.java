@@ -15,6 +15,7 @@ import QLTS.ExecuteStatement;
 import QLTS.ThiSinh;
 import QLTS.UpdatePrepareStatement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
     static ConnectionDataBase conn = new ConnectionDataBase();
     static UpdatePrepareStatement prepareStatement;
     static ExecuteStatement executeStatement;
-    static final int MAX_LENGTH = 15;
+    static final int MAX_LENGTH = 14;
     static int index = -1;
     static int index_begin = 0;
     static int index_end = MAX_LENGTH;
@@ -75,6 +76,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
         btnNext = new java.awt.Button();
         btnBack = new java.awt.Button();
         btnHienTatCa = new java.awt.Button();
+        label2 = new java.awt.Label();
         menuBar1 = new java.awt.MenuBar();
         menuTrangChu = new java.awt.Menu();
         menuItemThongTinTS = new java.awt.MenuItem();
@@ -84,6 +86,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
         menuItemSua = new java.awt.MenuItem();
         menuItemXoa = new java.awt.MenuItem();
 
+        setBackground(new java.awt.Color(204, 204, 204));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -92,8 +95,9 @@ public class ThongTinThiSinh extends java.awt.Frame {
 
         label1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         label1.setName(""); // NOI18N
-        label1.setText("THÔNG TIN THÍ SINH");
+        label1.setText("TRANG CHỦ");
 
+        btnTimKiem.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnTimKiem.setLabel("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +105,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
             }
         });
 
+        btnNext.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnNext.setLabel("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +113,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnBack.setLabel("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,12 +121,17 @@ public class ThongTinThiSinh extends java.awt.Frame {
             }
         });
 
+        btnHienTatCa.setBackground(new java.awt.Color(102, 255, 0));
+        btnHienTatCa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnHienTatCa.setLabel("Hiện tất cả");
         btnHienTatCa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHienTatCaActionPerformed(evt);
             }
         });
+
+        label2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        label2.setText("Thông tin thí sinh");
 
         menuTrangChu.setLabel("Trang chủ");
 
@@ -174,34 +185,37 @@ public class ThongTinThiSinh extends java.awt.Frame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(318, 318, 318)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tf_sbd, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnHienTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(42, 42, 42)
-                                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnHienTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tf_sbd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tf_sbd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addComponent(tar_ttthisinh, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
@@ -276,8 +290,6 @@ public class ThongTinThiSinh extends java.awt.Frame {
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
         index = -1;
-        btnBack.setEnabled(false);
-        btnNext.setEnabled(false);
         try{
             int sbd = Integer.valueOf(tf_sbd.getText().toString());
             
@@ -286,6 +298,9 @@ public class ThongTinThiSinh extends java.awt.Frame {
             }
             String ss = "";
             if(index !=-1){
+                btnBack.setEnabled(false);
+                btnNext.setEnabled(false);
+                
                 ss += arrTS.get(index).getSbd() + "\t";
                 ss += arrTS.get(index).getHoTen() + "\t";
                 ss += arrTS.get(index).getKhoi().getTenKhoi() + "\t";
@@ -296,8 +311,8 @@ public class ThongTinThiSinh extends java.awt.Frame {
                 tf_sbd.setText("");
                 System.out.println("Tìm kiếm thí sinh với số báo danh "+sbd+" thành công");
             }else{
-                tar_ttthisinh.setText("");
                 System.out.println("Không có thí sinh với số báo danh "+sbd);
+                JOptionPane.showConfirmDialog(this, "Không tìm thấy thí sinh","Thông báo",JOptionPane.OK_OPTION);
             }
         }catch (Exception e){
             System.out.println("Bạn cần nhập giá trị");
@@ -327,6 +342,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
     private java.awt.Button btnNext;
     private java.awt.Button btnTimKiem;
     private java.awt.Label label1;
+    private java.awt.Label label2;
     private java.awt.MenuBar menuBar1;
     private java.awt.Menu menuChucNang;
     private java.awt.MenuItem menuItemSua;
