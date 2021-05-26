@@ -174,6 +174,7 @@ public class XoaThiSinh extends java.awt.Frame {
         });
         popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
+        setTitle("Xóa thí sinh");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -533,7 +534,9 @@ public class XoaThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
-
+            ThongTinThiSinh ttts = new  ThongTinThiSinh(this.data);
+            ttts.setVisible(true);
+            setVisible(false);
     }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     private void menuItemDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDangXuatActionPerformed

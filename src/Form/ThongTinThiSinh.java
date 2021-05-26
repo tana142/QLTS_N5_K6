@@ -10,6 +10,7 @@ package Form;
 //import static Form.XoaThiSinh.index;
 //import static Form.XoaThiSinh.index_begin;
 //import static Form.XoaThiSinh.index_end;
+
 import QLTS.ConnectionDataBase;
 import QLTS.ExecuteStatement;
 import QLTS.ThiSinh;
@@ -31,7 +32,7 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class ThongTinThiSinh extends java.awt.Frame {
-    
+
     static ArrayList<ThiSinh> arrTS = new ArrayList<>();
     static ConnectionDataBase conn = new ConnectionDataBase();
     static UpdatePrepareStatement prepareStatement;
@@ -41,42 +42,47 @@ public class ThongTinThiSinh extends java.awt.Frame {
     static int index_begin = 0;
     static int index_end = MAX_LENGTH;
     private String data;
-    
+
     public static Dialog d;
+
     public ThongTinThiSinh(String data) {
-        
+
         initComponents();
-        
+
         this.add(popupMenu_ChucNamg);
         btnBack.setEnabled(false);
         btnNext.setEnabled(true);
         this.data = data;
-        if(this.data.equals("user")){
+        if (this.data.equals("user")) {
             this.menuChucNang.setEnabled(false);
+            this.menuItem_pu_Sua.enable(false);
+            this.menuItem_pu_Them.enable(false);
+            this.menuItem_pu_Xoa.enable(false);
         }
         loadForm(index_begin, index_end);
     }
 
-    private ThongTinThiSinh() {}
-    
+    private ThongTinThiSinh() {
+    }
+
     public void loadForm(int index_begin, int index_end) {
-        
+
         arrTS = executeStatement.selectThiSinh();
-        
+
         if (index_begin <= 0) {
             index_begin = 0;
             btnBack.setEnabled(false);
         } else {
             btnBack.setEnabled(true);
         }
-        
+
         if (index_end >= arrTS.size()) {
             index_end = arrTS.size();
             btnNext.setEnabled(false);
         } else {
             btnNext.setEnabled(true);
         }
-        
+
         String ss = "";
         for (int i = index_begin; i < index_end; i++) {
             ss += arrTS.get(i).getSbd() + "\t";
@@ -160,6 +166,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
         popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setTitle("Thông tin danh sách thí sinh");
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -335,34 +342,34 @@ public class ThongTinThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_exitForm
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        
+
         btnBack.setEnabled(true);
         index_begin = index_end;
         index_end += MAX_LENGTH;
-        
+
         loadForm(index_begin, index_end);
 
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+
         btnNext.setEnabled(true);
         index_end = index_begin;
         index_begin -= MAX_LENGTH;
-        
+
         loadForm(index_begin, index_end);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnHienTatCaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienTatCaActionPerformed
         btnBack.setEnabled(false);
         tf_sbd.setText("");
-        
+
         if (arrTS.size() <= MAX_LENGTH) {
             btnNext.setEnabled(false);
         } else {
             btnNext.setEnabled(true);
         }
-        
+
         index_begin = 0;
         index_end = MAX_LENGTH;
         loadForm(index_begin, index_end);
@@ -374,25 +381,20 @@ public class ThongTinThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_menuItemThemActionPerformed
 
     private void menuItemSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSuaActionPerformed
-        
-            //        try {
-//            new SuaThiSinh().setVisible(true);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-            new SuaThiSinh(this.data).setVisible(true);
-       
+
+        new SuaThiSinh(this.data).setVisible(true);
+
         dispose();
     }//GEN-LAST:event_menuItemSuaActionPerformed
 
     private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
-        
+//        ThongTinThiSinh ttts = new ThongTinThiSinh(this.data);
+//        ttts.setVisible(true);
+//        setVisible(false);
     }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
-         index = -1;
+        index = -1;
 
         try {
             int sbd = Integer.valueOf(tf_sbd.getText().toString());
