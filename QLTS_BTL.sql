@@ -10,8 +10,29 @@ CREATE TABLE TaiKhoan
 	,Pass VARCHAR(50) not null 
 )
 INSERT INTO TaiKhoan VALUES
+	('user1','user1')
+	,('user2','user2')
+	,('user3','user3')
+	,('user4','user4')
+	,('user5','user5')
+	,('user6','user6')
+	,('user7','user7')
+
+
+CREATE TABLE QuanTriVien
+(
+	IdDiaChi INTEGER IDENTITY(10000,1) PRIMARY KEY
+	,Username VARCHAR(50)   not null
+	,Pass VARCHAR(50) not null 
+)
+INSERT INTO QuanTriVien VALUES
 	('quantrivien','admin_qtv')
-	,('admin','admin')
+	,('buidangtan','buidangtan')
+	,('nguyenvanson','nguyenvanson')
+	,('nguyenducthanh','nguyenducthanh')
+
+
+
 
 CREATE TABLE DiaChi
 (
@@ -96,3 +117,5 @@ select SBD,HoTen,SoNha,Duong,Quan,ThanhPho,TenKhoi,Mon1,Mon2, Mon3, UuTien
 
 				select*from ThiSinh
 				select * from DiaChi
+				select*from TaiKhoan
+				select*from QuanTriVien

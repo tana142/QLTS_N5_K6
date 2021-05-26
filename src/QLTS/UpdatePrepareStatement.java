@@ -22,7 +22,6 @@ public class UpdatePrepareStatement {
             Connection conn = ConnectionDataBase.getConnectDB();
             String updatedc = "UPDATE DiaChi SET SoNha = ? , Duong = ? , Quan = ?, ThanhPho = ? "
                     + "		WHERE IdDiaChi = ?";
-
             PreparedStatement preparedStatement = conn.prepareStatement(updatedc);
             preparedStatement.setInt(1, soNha);
             preparedStatement.setString(2, duong);

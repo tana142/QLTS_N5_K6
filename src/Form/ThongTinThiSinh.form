@@ -2,6 +2,54 @@
 
 <Form version="1.2" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.FrameFormInfo">
   <NonVisualComponents>
+    <Menu class="java.awt.PopupMenu" name="popupMenu_ChucNamg">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
+        <Property name="name" type="java.lang.String" value=""/>
+      </Properties>
+      <SubComponents>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThemActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Sua">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="S&#x1eed;a th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_SuaActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Xoa">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="X&#xf3;a th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_XoaActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_DangXuat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_DangXuatActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Tho&#xe1;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThoatActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Menu>
     <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
         <Menu class="java.awt.Menu" name="menuTrangChu">
@@ -17,10 +65,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemDangXuat">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemDangXuatActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
               <Properties>
                 <Property name="label" type="java.lang.String" value="Tho&#xe1;t ch&#x1b0;&#x1a1;ng tr&#xec;nh"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThoatActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -28,6 +87,9 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuChucNangActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="java.awt.MenuItem" name="menuItemThem">
               <Properties>
@@ -69,6 +131,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="formMouseClicked"/>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="exitForm"/>
   </Events>
   <AuxValues>
@@ -88,57 +151,58 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="318" pref="318" max="-2" attributes="0"/>
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="label2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tf_sbd" min="-2" pref="118" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnTimKiem" min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btnHienTatCa" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="btnBack" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Component id="btnNext" min="-2" pref="70" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="tar_ttthisinh" min="-2" pref="569" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
+                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="262" pref="262" max="-2" attributes="0"/>
+                      <Component id="tf_sbd" min="-2" pref="118" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="btnTimKiem" min="-2" pref="79" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
+                      <Component id="tar_ttthisinh" min="-2" pref="569" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
+                      <Component id="btnHienTatCa" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnBack" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                      <Component id="btnNext" min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <EmptySpace pref="128" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
               <Component id="label1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnTimKiem" max="32767" attributes="0"/>
-                      <Component id="tf_sbd" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="label2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Component id="tar_ttthisinh" min="-2" pref="232" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnNext" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnHienTatCa" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Component id="label2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="tf_sbd" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="btnTimKiem" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+              <Component id="tar_ttthisinh" min="-2" pref="232" max="-2" attributes="0"/>
+              <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnHienTatCa" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnNext" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,7 +214,7 @@
           <Font name="Dialog" size="24" style="1"/>
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
-        <Property name="text" type="java.lang.String" value="TRANG CH&#x1ee6;"/>
+        <Property name="text" type="java.lang.String" value="TH&#xd4;NG TIN SINH VI&#xca;N"/>
       </Properties>
     </Component>
     <Component class="java.awt.TextArea" name="tar_ttthisinh">
