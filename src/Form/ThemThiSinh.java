@@ -158,6 +158,7 @@ public class ThemThiSinh extends java.awt.Frame {
         });
         popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
+        setTitle("Thêm thí sinh");
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -605,48 +606,46 @@ public class ThemThiSinh extends java.awt.Frame {
 
     private void btn_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_themActionPerformed
         // TODO add your handling code here:
-    try{
-        if (index == 0) {
-            btn_back.setEnabled(false);
-            btn_next.setEnabled(true);
-        }
+        try {
+            if (index == 0) {
+                btn_back.setEnabled(false);
+                btn_next.setEnabled(true);
+            }
 
 //        int sbd = Integer.valueOf(txt_sbd.getText().trim());
-     int kt =  checkDk();
-     int check = -1;
-     if(kt == 1){
-          String hoTen = txt_hoten.getText();
-        int soNha = Integer.valueOf(txt_sonha.getText().trim());
-        String duong = txt_duong.getText().trim();
-        String quan = txt_quan.getText().trim();
-        String thanhPho = txt_thanhpho.getText().trim();
-        String khoi = choice1.getSelectedItem().toString();
-        String uuTien = choice_ut.getSelectedItem().toString();
+            int kt = checkDk();
+            int check = -1;
+            if (kt == 1) {
+                String hoTen = txt_hoten.getText();
+                int soNha = Integer.valueOf(txt_sonha.getText().trim());
+                String duong = txt_duong.getText().trim();
+                String quan = txt_quan.getText().trim();
+                String thanhPho = txt_thanhpho.getText().trim();
+                String khoi = choice1.getSelectedItem().toString();
+                String uuTien = choice_ut.getSelectedItem().toString();
 
-        QLTS.DiaChi dc = new QLTS.DiaChi(soNha, duong, quan, thanhPho);
-        QLTS.Khoi k = new QLTS.Khoi(khoi);
-        QLTS.ThiSinh TS = new QLTS.ThiSinh(hoTen, k, dc, uuTien);
-        check = UpdatePrepareStatement.insertTS(TS);
-     }
-     
-
-       
-        if (check != -1) {
-            showDialog("Thêm thông tin thí sinh thành công!");
-            System.out.println("Them thanh cong");
-
-            arrTS = executeStatement.selectThiSinh();
-            index = arrTS.size() - 1;
-            hienThiThongTin();
-            if (index == arrTS.size() - 1) {
-                btn_back.setEnabled(true);
-                btn_next.setEnabled(false);
+                QLTS.DiaChi dc = new QLTS.DiaChi(soNha, duong, quan, thanhPho);
+                QLTS.Khoi k = new QLTS.Khoi(khoi);
+                QLTS.ThiSinh TS = new QLTS.ThiSinh(hoTen, k, dc, uuTien);
+                check = UpdatePrepareStatement.insertTS(TS);
             }
-            
-        }
-    }catch(Exception e){
-                showDialog("Thêm thông tin thí sinh thất bại!                    ");
+
+            if (check != -1) {
+                showDialog("Thêm thông tin thí sinh thành công!");
+                System.out.println("Them thanh cong");
+
+                arrTS = executeStatement.selectThiSinh();
+                index = arrTS.size() - 1;
+                hienThiThongTin();
+                if (index == arrTS.size() - 1) {
+                    btn_back.setEnabled(true);
+                    btn_next.setEnabled(false);
                 }
+
+            }
+        } catch (Exception e) {
+            showDialog("Thêm thông tin thí sinh thất bại!                    ");
+        }
 //        } else {
 //            System.out.println("them that bai");
 //
@@ -693,7 +692,9 @@ public class ThemThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_txt_sonhaKeyTyped
 
     private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
-
+        ThongTinThiSinh ttts = new ThongTinThiSinh(this.data);
+        ttts.show();
+        dispose();
     }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     private void menuItemDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDangXuatActionPerformed
@@ -716,12 +717,12 @@ public class ThemThiSinh extends java.awt.Frame {
     private void menuItemSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSuaActionPerformed
 
         //        try {
-            //            new SuaThiSinh().setVisible(true);
-            //        } catch (SQLException ex) {
-            //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-            //        } catch (ClassNotFoundException ex) {
-            //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
+        //            new SuaThiSinh().setVisible(true);
+        //        } catch (SQLException ex) {
+        //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        //        } catch (ClassNotFoundException ex) {
+        //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
         new SuaThiSinh(this.data).setVisible(true);
 
         dispose();
@@ -885,14 +886,15 @@ public void hienThiThongTin() {
         d.setLocationRelativeTo(this);
         d.setVisible(true);
     }
-    public int  checkDk(){
-         if (txt_hoten.getText().length() <= 0) {
+
+    public int checkDk() {
+        if (txt_hoten.getText().length() <= 0) {
             showDialog("Bạn chưa nhập họ tên thí sinh!");
             return 0;
         }
         if (txt_sonha.getText().length() <= 0) {
             showDialog("Bạn chưa nhập số nhà!");
-            return 0 ;
+            return 0;
         }
         if (txt_sonha.getText().length() >= 10) {
             showDialog("Số nhà không được lớn hơn 10 ký tự!");
@@ -908,7 +910,7 @@ public void hienThiThongTin() {
         }
         if (txt_thanhpho.getText().length() <= 0) {
             showDialog("Bạn chưa nhập tên thành phố!");
-            return 0 ;
+            return 0;
         }
         return 1;
     }

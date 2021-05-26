@@ -160,6 +160,7 @@ public class ThongTinThiSinh extends java.awt.Frame {
         popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setTitle("Thông tin danh sách thí sinh");
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);

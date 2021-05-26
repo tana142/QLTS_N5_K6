@@ -58,7 +58,7 @@ public class XoaThiSinh extends java.awt.Frame {
     }
 
     public void xoaTS(ThiSinh ts) {
-                UpdatePrepareStatement.deleteTS(ts);
+        UpdatePrepareStatement.deleteTS(ts);
     }
 
     private XoaThiSinh() {
@@ -174,6 +174,7 @@ public class XoaThiSinh extends java.awt.Frame {
         });
         popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
+        setTitle("Xóa thí sinh");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
@@ -473,7 +474,7 @@ public class XoaThiSinh extends java.awt.Frame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         int count = 0;
-        System.out.println("check " +check);
+        System.out.println("check " + check);
         try {
             int sbd = Integer.valueOf(tf_sbd.getText().toString());
             for (int i = 0; i < arrTS.size(); i++) {
@@ -483,11 +484,11 @@ public class XoaThiSinh extends java.awt.Frame {
 
                     d = new Dialog(this, "Thông báo", true);
                     d.setLayout(new FlowLayout());
-                     b.addActionListener(new ActionListener() {
+                    b.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             check = -1000;
                             d.setVisible(false);
-                            System.out.println("check b " +check);
+                            System.out.println("check b " + check);
                         }
                     });
 
@@ -495,14 +496,14 @@ public class XoaThiSinh extends java.awt.Frame {
                         public void actionPerformed(ActionEvent e) {
                             check = 1;
                             d.setVisible(false);
-                            System.out.println("check b1 " +check);
+                            System.out.println("check b1 " + check);
                         }
                     });
-                   
+
                     d.add(new Label("Bạn có chắc muốn xóa thí sinh này!                  "));
                     d.add(b);
                     d.add(b1);
-                    System.out.println("check sx " +check);
+                    System.out.println("check sx " + check);
                     d.setSize(300, 150);
                     d.setLocationRelativeTo(this);
                     d.setVisible(true);
@@ -511,13 +512,11 @@ public class XoaThiSinh extends java.awt.Frame {
                         xoaTS(ts);
                         showDialog("Xóa thí sinh thành công!                               ");
                         index_begin = 0;
-                    index_end = MAX_LEG;
-                    loadForm(index_begin, index_end);
-                    tf_sbd.setText("");
-                    
+                        index_end = MAX_LEG;
+                        loadForm(index_begin, index_end);
+                        tf_sbd.setText("");
+
                     }
-                    
-                    
 
                 }
             }
@@ -533,7 +532,9 @@ public class XoaThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
-
+        ThongTinThiSinh ttts = new ThongTinThiSinh(this.data);
+        ttts.show();
+        dispose();
     }//GEN-LAST:event_menuItemThongTinTSActionPerformed
 
     private void menuItemDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDangXuatActionPerformed
