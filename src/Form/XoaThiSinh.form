@@ -2,6 +2,54 @@
 
 <Form version="1.2" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.FrameFormInfo">
   <NonVisualComponents>
+    <Menu class="java.awt.PopupMenu" name="popupMenu_ChucNamg">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
+        <Property name="name" type="java.lang.String" value=""/>
+      </Properties>
+      <SubComponents>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_TTTS">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_TTTSActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Sua">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="S&#x1eed;a th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_SuaActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThemActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_DangXuat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_DangXuatActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="Tho&#xe1;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThoatActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Menu>
     <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
         <Menu class="java.awt.Menu" name="menuTrangChu">
@@ -9,12 +57,20 @@
             <Property name="label" type="java.lang.String" value="Trang ch&#x1ee7;"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="java.awt.MenuItem" name="menuItemTTThiSinh">
+            <MenuItem class="java.awt.MenuItem" name="menuItemThongTinTS">
               <Properties>
-                <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin th&#xed; sinh"/>
+                <Property name="label" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1;c th&#xed; sinh"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemTTThiSinhActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemDangXuat">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemDangXuatActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
@@ -31,6 +87,9 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuChucNangActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="java.awt.MenuItem" name="menuItemThem">
               <Properties>
@@ -46,6 +105,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemSuaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemXoa">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="X&#xf3;a th&#xed; sinh"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemXoaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -82,6 +149,9 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panel1MouseClicked"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>

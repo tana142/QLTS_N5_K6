@@ -9,26 +9,40 @@ import static Form.SuaThiSinh.arrTS;
 import static Form.SuaThiSinh.executeStatement;
 import QLTS.ExecuteStatement;
 import QLTS.User;
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.FlowLayout;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  *
  * @author buida
  */
 public class DangNhap extends java.awt.Frame {
-    
-    ArrayList<User> arrUser = new ArrayList<>();
+
+    public static boolean Check;
+    public static ArrayList<User> arrUser = new ArrayList<>();
+    public static ArrayList<User> arrAdmin = new ArrayList<>();
+    Dialog d;
+    public static String tk;
+    public static String mk ;
     static ExecuteStatement executeStatement;
-    
-    
 
     /**
      * Creates new form DangNhap
      */
     public DangNhap() {
         initComponents();
-         arrUser = executeStatement.selectUser();
+        arrUser = executeStatement.selectUser();
+        arrAdmin = executeStatement.selectAdmin();
+        txt_matkhau.setEchoChar('*');
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,29 +101,64 @@ public class DangNhap extends java.awt.Frame {
     }//GEN-LAST:event_exitForm
 
     private void button_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_dangnhapActionPerformed
+
         
-        String tk = txt_taikhoan.getText().trim();
-        String mk = txt_matkhau.getText().trim();
+        tk = txt_taikhoan.getText().trim();
+        mk = txt_matkhau.getText().trim();
         
+
         System.out.println("tk: " + tk);
         System.out.println("mk: " + mk);
-        boolean check = false;
+        String check = "";
         for (int i = 0; i < arrUser.size(); i++) {
-            System.out.println(arrUser.get(i).getUserName() + " " + arrUser.get(i).getPassWord());
-            if(arrUser.get(i).getUserName().toString().equals(tk) && arrUser.get(i).getPassWord().toString().equals(mk)){
-                check = true;
+            if (arrUser.get(i).getUserName().toString().equals(tk)
+                    && arrUser.get(i).getPassWord().toString().equals(mk)) {
+                check = new String("user");
+                
                 break;
             }
         }
-        
-        if(check == true){
-            System.out.println("Đăng nhập thành công");
+        for (int i = 0; i < arrAdmin.size(); i++) {
+            if (arrAdmin.get(i).getUserName().toString().equals(tk)
+                    && arrAdmin.get(i).getPassWord().toString().equals(mk)) {
+                check = "admin";
+                break;
+            }
+        }
+
+        if (check.equals("user")) {
+            System.out.println("Đăng nhập thành công user");
             //chuyen sang chuc nang
+            showDialog("Bạn đang đăng nhập với tài khoản người dùng!","user");
+        } else if (check.equals("admin")) {
+            System.out.println("Đăng nhập thành công admin");
+            
+            showDialog("Bạn đang đăng nhập với tài khoản người quản trị!","admin");
             
             
-        }else{
+        } else {
             System.out.println("Tài khoản hoặc mật khẩu không đúng");
             //thong bao dang nhap khong thanh cong
+            d = new Dialog(this, "Thông báo", true);
+            d.setLayout(new FlowLayout());
+//        TextField t = new TextField();
+            Button b = new Button("OK");
+            b.setLocale(Locale.UK);
+            b.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    d.setVisible(false);
+//                    ThongTinThiSinh ttts = new ThongTinThiSinh("user");
+//                    ttts.show();
+//                    dispose();
+                }
+            });
+            d.add(new Label("Tài khoản hoặc mật khẩu không hợp lệ!      "));
+            d.add(b);
+            d.setSize(300, 150);
+            d.setLocationRelativeTo(this);
+            d.setVisible(true);
+//            showDialog("Tài khoản hoặc mật khẩu không hợp lệ!");
+            
         }
     }//GEN-LAST:event_button_dangnhapActionPerformed
 
@@ -120,6 +169,7 @@ public class DangNhap extends java.awt.Frame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DangNhap().setVisible(true);
+        
             }
         });
     }
@@ -133,4 +183,24 @@ public class DangNhap extends java.awt.Frame {
     private java.awt.TextField txt_matkhau;
     private java.awt.TextField txt_taikhoan;
     // End of variables declaration//GEN-END:variables
+
+    public void showDialog(String s, String ad) {
+        d = new Dialog(this, "Thông báo", true);
+            d.setLayout(new FlowLayout());
+//        TextField t = new TextField();
+            Button b = new Button("OK");
+            b.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    d.setVisible(false);
+                    ThongTinThiSinh ttts = new ThongTinThiSinh(ad);
+                    ttts.show();
+                    dispose();
+                }
+            });
+            d.add(new Label(s));
+            d.add(b);
+            d.setSize(300, 150);
+            d.setLocationRelativeTo(this);
+            d.setVisible(true);
+    }
 }

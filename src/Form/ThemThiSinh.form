@@ -16,12 +16,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_TTTSActionPerformed"/>
           </Events>
         </MenuItem>
-        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Them">
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Sua">
           <Properties>
-            <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+            <Property name="label" type="java.lang.String" value="S&#x1eed;a th&#xed; sinh"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_ThemActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_SuaActionPerformed"/>
           </Events>
         </MenuItem>
         <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Xoa">
@@ -30,6 +30,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_XoaActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="java.awt.MenuItem" name="menuItem_pu_DangXuat">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItem_pu_DangXuatActionPerformed"/>
           </Events>
         </MenuItem>
         <MenuItem class="java.awt.MenuItem" name="menuItem_pu_Thoat">
@@ -42,7 +50,7 @@
         </MenuItem>
       </SubComponents>
     </Menu>
-    <Menu class="java.awt.MenuBar" name="menuBar2">
+    <Menu class="java.awt.MenuBar" name="menuBar1">
       <SubComponents>
         <Menu class="java.awt.Menu" name="menuTrangChu">
           <Properties>
@@ -55,6 +63,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThongTinTSActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="java.awt.MenuItem" name="menuItemDangXuat">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemDangXuatActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemThoat">
@@ -71,7 +87,18 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Ch&#x1ee9;c n&#x103;ng"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuChucNangActionPerformed"/>
+          </Events>
           <SubComponents>
+            <MenuItem class="java.awt.MenuItem" name="menuItemThem">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="Th&#xea;m th&#xed; sinh"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemThemActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="java.awt.MenuItem" name="menuItemSua">
               <Properties>
                 <Property name="label" type="java.lang.String" value="S&#x1eed;a th&#xed; sinh"/>
@@ -94,7 +121,7 @@
     </Menu>
   </NonVisualComponents>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar2"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>

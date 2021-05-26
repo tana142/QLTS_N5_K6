@@ -42,6 +42,33 @@ public class ExecuteStatement {
         
     }
     
+     public static ArrayList<User> selectAdmin(){
+        
+        ArrayList<User> arr = new ArrayList<>();
+        try {
+            Statement stm = null;
+            ResultSet rs = null;
+            Connection  conn = ConnectionDataBase.getConnectDB();
+            String s = " SELECT * FROM QuanTriVien";
+            stm = conn.createStatement();
+             rs = stm.executeQuery(s);
+            while (rs.next()) {
+                arr.add(new User(rs.getString(2), rs.getString(3)));
+            }
+            conn.close();
+             
+            return arr;
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ExecuteStatement.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ExecuteStatement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+        
+    }
+    
     public static ArrayList<ThiSinh> selectThiSinh(){
         ArrayList<ThiSinh> arrTS = new ArrayList<>();
         

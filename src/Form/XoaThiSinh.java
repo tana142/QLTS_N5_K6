@@ -10,8 +10,15 @@ import QLTS.ConnectionDataBase;
 import QLTS.ExecuteStatement;
 import QLTS.ThiSinh;
 import QLTS.UpdatePrepareStatement;
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.FlowLayout;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -30,42 +37,63 @@ public class XoaThiSinh extends java.awt.Frame {
     static int index = -1;
     static int index_begin = 0;
     static int index_end = MAX_LEG;
-    
-    public XoaThiSinh() {
+    private String data;
+    public static Dialog d;
+    public static final Button b = new Button("OK");
+    public static final Button b1 = new Button("NO");
+    int check;
+
+    public XoaThiSinh(String data) {
         initComponents();
-        
+
         btnBack.setEnabled(false);
         btnNext.setEnabled(true);
-        loadForm(index_begin,index_end);
-        
+        this.data = data;
+        if (this.data.equals("user")) {
+            this.menuChucNang.setEnabled(false);
+        }
+        loadForm(index_begin, index_end);
+        this.add(popupMenu_ChucNamg);
+
     }
-    
-    public void loadForm(int index_begin, int index_end){
-        
+
+    public void xoaTS(ThiSinh ts) {
+                UpdatePrepareStatement.deleteTS(ts);
+    }
+
+    private XoaThiSinh() {
+    }
+
+    public void loadForm(int index_begin, int index_end) {
+
         arrTS = executeStatement.selectThiSinh();
-        
-        if(index_begin <=0){
+        if (index_begin <= 0) {
             index_begin = 0;
             btnBack.setEnabled(false);
-        }else btnBack.setEnabled(true);
-        
-        if(index_end >= arrTS.size()){
+        } else {
+            btnBack.setEnabled(true);
+        }
+
+        if (index_end >= arrTS.size()) {
             index_end = arrTS.size();
             btnNext.setEnabled(false);
-        }else btnNext.setEnabled(true);
-        
-        
+        } else {
+            btnNext.setEnabled(true);
+        }
+
         String ss = "";
-        for(int i =index_begin ;i<index_end;i++){
+        for (int i = index_begin; i < index_end; i++) {
             ss += arrTS.get(i).getSbd() + "\t";
             ss += arrTS.get(i).getHoTen() + "\t";
             ss += arrTS.get(i).getKhoi().getTenKhoi() + "\t";
             ss += arrTS.get(i).getDiaChi().getThanhPho() + "\t";
-            ss += arrTS.get(i).getUuTien() + "\t"+"\n";
+            ss += arrTS.get(i).getUuTien() + "\t" + "\n";
         }
-        if(ss != null)
+        if (ss != null) {
             tar_ttthisinh.setText(ss.toString());
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +102,12 @@ public class XoaThiSinh extends java.awt.Frame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMenu_ChucNamg = new java.awt.PopupMenu();
+        menuItem_pu_TTTS = new java.awt.MenuItem();
+        menuItem_pu_Sua = new java.awt.MenuItem();
+        menuItem_pu_Them = new java.awt.MenuItem();
+        menuItem_pu_DangXuat = new java.awt.MenuItem();
+        menuItem_pu_Thoat = new java.awt.MenuItem();
         panel1 = new java.awt.Panel();
         label1 = new java.awt.Label();
         tar_ttthisinh = new java.awt.TextArea();
@@ -89,11 +123,56 @@ public class XoaThiSinh extends java.awt.Frame {
         tf_sbd = new java.awt.TextField();
         menuBar1 = new java.awt.MenuBar();
         menuTrangChu = new java.awt.Menu();
-        menuItemTTThiSinh = new java.awt.MenuItem();
+        menuItemThongTinTS = new java.awt.MenuItem();
+        menuItemDangXuat = new java.awt.MenuItem();
         menuItemThoat = new java.awt.MenuItem();
         menuChucNang = new java.awt.Menu();
         menuItemThem = new java.awt.MenuItem();
         menuItemSua = new java.awt.MenuItem();
+        menuItemXoa = new java.awt.MenuItem();
+
+        popupMenu_ChucNamg.setLabel("Chức năng");
+        popupMenu_ChucNamg.setName("");
+
+        menuItem_pu_TTTS.setLabel("Trang chủ");
+        menuItem_pu_TTTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_TTTSActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_TTTS);
+
+        menuItem_pu_Sua.setLabel("Sửa thí sinh");
+        menuItem_pu_Sua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_SuaActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Sua);
+
+        menuItem_pu_Them.setLabel("Thêm thí sinh");
+        menuItem_pu_Them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_ThemActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Them);
+
+        menuItem_pu_DangXuat.setLabel("Đăng xuất");
+        menuItem_pu_DangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_DangXuatActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_DangXuat);
+
+        menuItem_pu_Thoat.setLabel("Thoát");
+        menuItem_pu_Thoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_pu_ThoatActionPerformed(evt);
+            }
+        });
+        popupMenu_ChucNamg.add(menuItem_pu_Thoat);
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -102,6 +181,11 @@ public class XoaThiSinh extends java.awt.Frame {
         });
 
         panel1.setBackground(new java.awt.Color(204, 204, 204));
+        panel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel1MouseClicked(evt);
+            }
+        });
 
         label1.setText("label1");
 
@@ -234,13 +318,21 @@ public class XoaThiSinh extends java.awt.Frame {
 
         menuTrangChu.setLabel("Trang chủ");
 
-        menuItemTTThiSinh.setLabel("Thông tin thí sinh");
-        menuItemTTThiSinh.addActionListener(new java.awt.event.ActionListener() {
+        menuItemThongTinTS.setLabel("Thông tin các thí sinh");
+        menuItemThongTinTS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemTTThiSinhActionPerformed(evt);
+                menuItemThongTinTSActionPerformed(evt);
             }
         });
-        menuTrangChu.add(menuItemTTThiSinh);
+        menuTrangChu.add(menuItemThongTinTS);
+
+        menuItemDangXuat.setLabel("Đăng xuất");
+        menuItemDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemDangXuatActionPerformed(evt);
+            }
+        });
+        menuTrangChu.add(menuItemDangXuat);
 
         menuItemThoat.setLabel("Thoát chương trình");
         menuItemThoat.addActionListener(new java.awt.event.ActionListener() {
@@ -253,6 +345,11 @@ public class XoaThiSinh extends java.awt.Frame {
         menuBar1.add(menuTrangChu);
 
         menuChucNang.setLabel("Chức năng");
+        menuChucNang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuChucNangActionPerformed(evt);
+            }
+        });
 
         menuItemThem.setLabel("Thêm thí sinh");
         menuItemThem.addActionListener(new java.awt.event.ActionListener() {
@@ -270,6 +367,14 @@ public class XoaThiSinh extends java.awt.Frame {
         });
         menuChucNang.add(menuItemSua);
 
+        menuItemXoa.setLabel("Xóa thí sinh");
+        menuItemXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemXoaActionPerformed(evt);
+            }
+        });
+        menuChucNang.add(menuItemXoa);
+
         menuBar1.add(menuChucNang);
 
         setMenuBar(menuBar1);
@@ -285,20 +390,22 @@ public class XoaThiSinh extends java.awt.Frame {
     }//GEN-LAST:event_exitForm
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
-         
+
         index = -1;
-        
-        try{
+
+        try {
             int sbd = Integer.valueOf(tfTimKiem.getText().toString());
-            
-            for(int i=0;i<arrTS.size();i++){
-                if(Integer.valueOf(arrTS.get(i).getSbd()) == sbd) index = i;
+
+            for (int i = 0; i < arrTS.size(); i++) {
+                if (Integer.valueOf(arrTS.get(i).getSbd()) == sbd) {
+                    index = i;
+                }
             }
             String ss = "";
-            if(index !=-1){
+            if (index != -1) {
                 btnBack.setEnabled(false);
                 btnNext.setEnabled(false);
-                
+
                 ss += arrTS.get(index).getSbd() + "\t";
                 ss += arrTS.get(index).getHoTen() + "\t";
                 ss += arrTS.get(index).getKhoi().getTenKhoi() + "\t";
@@ -307,53 +414,57 @@ public class XoaThiSinh extends java.awt.Frame {
 
                 tar_ttthisinh.setText(ss);
                 tfTimKiem.setText("");
-                System.out.println("Tìm kiếm thí sinh với số báo danh "+sbd+" thành công");
-            }else{
-                System.out.println("Không có thí sinh với số báo danh "+sbd);
-                JOptionPane.showConfirmDialog(this, "Không tìm thấy thí sinh","Thông báo",JOptionPane.OK_OPTION);
+                System.out.println("Tìm kiếm thí sinh với số báo danh " + sbd + " thành công");
+            } else {
+                showDialog("Số báo danh không tồn tại!");
+//                System.out.println("Không có thí sinh với số báo danh "+sbd);
+//                JOptionPane.showConfirmDialog(this, "Không tìm thấy thí sinh","Thông báo",JOptionPane.OK_OPTION);
             }
-        }catch (Exception e){
-            System.out.println("Bạn cần nhập giá trị");
+        } catch (Exception e) {
+//            System.out.println("Bạn cần nhập giá trị");
+            showDialog("Hãy nhập số báo danh vào ô tìm kiếm!");
         }
-        
-        
+
+
     }//GEN-LAST:event_btnTimKiemActionPerformed
 
     private void btnHienTatCaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienTatCaActionPerformed
         btnBack.setEnabled(false);
         tfTimKiem.setText("");
         tf_sbd.setText("");
-        
-        if(arrTS.size() <= MAX_LEG)
+
+        if (arrTS.size() <= MAX_LEG) {
             btnNext.setEnabled(false);
-        else btnNext.setEnabled(true); 
-        
+        } else {
+            btnNext.setEnabled(true);
+        }
+
         index_begin = 0;
         index_end = MAX_LEG;
-        loadForm(index_begin,index_end);
+        loadForm(index_begin, index_end);
     }//GEN-LAST:event_btnHienTatCaActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        
+
         btnBack.setEnabled(true);
         index_begin = index_end;
-        index_end +=MAX_LEG;
-        
+        index_end += MAX_LEG;
+
         loadForm(index_begin, index_end);
-        
+
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-      
+
         btnNext.setEnabled(true);
         index_end = index_begin;
-        index_begin -=MAX_LEG;
-        
+        index_begin -= MAX_LEG;
+
         loadForm(index_begin, index_end);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void tfTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTimKiemActionPerformed
-        
+
     }//GEN-LAST:event_tfTimKiemActionPerformed
 
     private void tf_sbdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_sbdActionPerformed
@@ -362,63 +473,153 @@ public class XoaThiSinh extends java.awt.Frame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         int count = 0;
-        try{
+        System.out.println("check " +check);
+        try {
             int sbd = Integer.valueOf(tf_sbd.getText().toString());
-            for(int i=0;i<arrTS.size();i++){
-                if(sbd == arrTS.get(i).getSbd()){
+            for (int i = 0; i < arrTS.size(); i++) {
+                if (sbd == arrTS.get(i).getSbd()) {
+                    ThiSinh ts = new ThiSinh();
+                    ts = arrTS.get(i);
+
+                    d = new Dialog(this, "Thông báo", true);
+                    d.setLayout(new FlowLayout());
+                     b.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            check = -1000;
+                            d.setVisible(false);
+                            System.out.println("check b " +check);
+                        }
+                    });
+
+                    b1.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            check = 1;
+                            d.setVisible(false);
+                            System.out.println("check b1 " +check);
+                        }
+                    });
+                   
+                    d.add(new Label("Bạn có chắc muốn xóa thí sinh này!                  "));
+                    d.add(b);
+                    d.add(b1);
+                    System.out.println("check sx " +check);
+                    d.setSize(300, 150);
+                    d.setLocationRelativeTo(this);
+                    d.setVisible(true);
                     count++;
-                    int confirm = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn xóa","Thông báo",JOptionPane.YES_NO_OPTION);
-                    if(confirm == JOptionPane.YES_OPTION){
-                        UpdatePrepareStatement.deleteTS(arrTS.get(i));
-                        System.out.println("Xoa thanh cong");
-                        //Load lại danh sách thí sinh
+                    if (check != 1) {
+                        xoaTS(ts);
+                        showDialog("Xóa thí sinh thành công!                               ");
                         index_begin = 0;
-                        index_end = MAX_LEG;
-                        loadForm(index_begin,index_end);
-                        tf_sbd.setText("");
+                    index_end = MAX_LEG;
+                    loadForm(index_begin, index_end);
+                    tf_sbd.setText("");
+                    
                     }
+                    
+                    
+
                 }
             }
-            if(count == 0){
-                JOptionPane.showConfirmDialog(this, "Không tìm thấy thí sinh","Thông báo",JOptionPane.OK_OPTION);
+            if (count == 0) {
+                showDialog("Không tìm thấy thí sinh!                      ");
             }
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("Số bao danh không được để trống");
+            showDialog("Bạn chưa nhập số báo danh cần xóa!                  ");
         }
-        
+
     }//GEN-LAST:event_btnXoaActionPerformed
 
+    private void menuItemThongTinTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThongTinTSActionPerformed
+
+    }//GEN-LAST:event_menuItemThongTinTSActionPerformed
+
+    private void menuItemDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDangXuatActionPerformed
+        // TODO add your handling code here:
+        DangNhap dn = new DangNhap();
+        dn.show();
+        dispose();
+    }//GEN-LAST:event_menuItemDangXuatActionPerformed
+
+    private void menuItemThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThoatActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_menuItemThoatActionPerformed
+
     private void menuItemThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThemActionPerformed
-        new ThemThiSinh().setVisible(true);
+        new ThemThiSinh(this.data).setVisible(true);
         dispose();
     }//GEN-LAST:event_menuItemThemActionPerformed
 
     private void menuItemSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSuaActionPerformed
-        try {
-            new SuaThiSinh().setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        //        try {
+        //            new SuaThiSinh().setVisible(true);
+        //        } catch (SQLException ex) {
+        //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        //        } catch (ClassNotFoundException ex) {
+        //            Logger.getLogger(XoaThiSinh.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
+        new SuaThiSinh(this.data).setVisible(true);
+
         dispose();
     }//GEN-LAST:event_menuItemSuaActionPerformed
 
-    private void menuItemTTThiSinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemTTThiSinhActionPerformed
-        new ThongTinThiSinh().setVisible(true);
+    private void menuItemXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemXoaActionPerformed
+        new XoaThiSinh(this.data).setVisible(true);
         dispose();
-    }//GEN-LAST:event_menuItemTTThiSinhActionPerformed
+    }//GEN-LAST:event_menuItemXoaActionPerformed
 
-    private void menuItemThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemThoatActionPerformed
+    private void menuChucNangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuChucNangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuChucNangActionPerformed
+
+    private void menuItem_pu_TTTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_TTTSActionPerformed
+        // TODO add your handling code here:
+        ThongTinThiSinh ttts = new ThongTinThiSinh(this.data);
+        ttts.show();
         dispose();
-    }//GEN-LAST:event_menuItemThoatActionPerformed
+    }//GEN-LAST:event_menuItem_pu_TTTSActionPerformed
+
+    private void menuItem_pu_SuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_SuaActionPerformed
+        // TODO add your handling code here:
+        SuaThiSinh s = new SuaThiSinh(this.data);
+        s.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_SuaActionPerformed
+
+    private void menuItem_pu_ThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_ThemActionPerformed
+        // TODO add your handling code here:
+        ThemThiSinh t = new ThemThiSinh(this.data);
+        t.show();
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_ThemActionPerformed
+
+    private void menuItem_pu_DangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_DangXuatActionPerformed
+        // TODO add your handling code here:
+        DangNhap dn = new DangNhap();
+        dn.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_DangXuatActionPerformed
+
+    private void menuItem_pu_ThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_pu_ThoatActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_menuItem_pu_ThoatActionPerformed
+
+    private void panel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseClicked
+        // TODO add your handling code here:
+        popupMenu_ChucNamg.show(this, evt.getX(), evt.getY());
+    }//GEN-LAST:event_panel1MouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new XoaThiSinh().setVisible(true);
             }
@@ -437,15 +638,43 @@ public class XoaThiSinh extends java.awt.Frame {
     private java.awt.Label label5;
     private java.awt.MenuBar menuBar1;
     private java.awt.Menu menuChucNang;
+    private java.awt.MenuItem menuItemDangXuat;
     private java.awt.MenuItem menuItemSua;
-    private java.awt.MenuItem menuItemTTThiSinh;
     private java.awt.MenuItem menuItemThem;
     private java.awt.MenuItem menuItemThoat;
+    private java.awt.MenuItem menuItemThongTinTS;
+    private java.awt.MenuItem menuItemXoa;
+    private java.awt.MenuItem menuItem_pu_DangXuat;
+    private java.awt.MenuItem menuItem_pu_Sua;
+    private java.awt.MenuItem menuItem_pu_TTTS;
+    private java.awt.MenuItem menuItem_pu_Them;
+    private java.awt.MenuItem menuItem_pu_Thoat;
     private java.awt.Menu menuTrangChu;
     private java.awt.Panel panel1;
+    private java.awt.PopupMenu popupMenu_ChucNamg;
     private java.awt.TextArea tar_ttthisinh;
     private java.awt.TextField tfTimKiem;
     private java.awt.TextField tf_sbd;
     private java.awt.Label xoaThiSinh;
     // End of variables declaration//GEN-END:variables
+
+    public void showDialog(String s) {
+        d = new Dialog(this, "Thông báo", true);
+        d.setLayout(new FlowLayout());
+        Button b = new Button("OK");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                d.setVisible(false);
+                d.dispose();
+//                    setVisible(true);
+//                    SuaThiSinh sts = new SuaThiSinh("user");
+//                    sts.show();
+            }
+        });
+        d.add(new Label(s));
+        d.add(b);
+        d.setSize(300, 150);
+        d.setLocationRelativeTo(this);
+        d.setVisible(true);
+    }
 }
