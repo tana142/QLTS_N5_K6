@@ -465,10 +465,11 @@ public class SuaThiSinh extends java.awt.Frame {
                 d.setVisible(true);
                 if (ck != 1) {
                     check = UpdatePrepareStatement.updateTS(TS);
+                    arrTS = executeStatement.selectThiSinh();
+                    hienThiThongTin();
 //                        xoaTS(ts);
                     showDialog("Sửa thông tin thí sinh thành công!                              ");
                     btn_sua.setEnabled(true);
-                    hienThiThongTin();
                 }
 
             }
