@@ -635,12 +635,10 @@ public class ThemThiSinh extends java.awt.Frame {
                 System.out.println("Them thanh cong");
 
                 arrTS = executeStatement.selectThiSinh();
-                index = arrTS.size() - 1;
+                index = arrTS.size() -1;
                 hienThiThongTin();
-                if (index == arrTS.size() - 1) {
                     btn_back.setEnabled(true);
                     btn_next.setEnabled(false);
-                }
 
             }
         } catch (Exception e) {
