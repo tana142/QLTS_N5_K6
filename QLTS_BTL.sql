@@ -17,6 +17,7 @@ INSERT INTO TaiKhoan VALUES
 	,('user5','user5')
 	,('user6','user6')
 	,('user7','user7')
+	,('2','2')
 
 
 CREATE TABLE QuanTriVien
@@ -30,6 +31,7 @@ INSERT INTO QuanTriVien VALUES
 	,('buidangtan','buidangtan')
 	,('nguyenvanson','nguyenvanson')
 	,('nguyenducthanh','nguyenducthanh')
+	,('1','1')
 
 
 
@@ -42,20 +44,35 @@ CREATE TABLE DiaChi
 	,Quan NVARCHAR(50) not null
 	,ThanhPho NVARCHAR(50) not null
 )
-
+-- drop table DiaChi
 
 INSERT INTO DiaChi
 VALUES
 
 	(101,N'Đường 39', N'Lê Chân', N'Hải Phòng')
+	,(102,N'Đường 102 ', N'Cẩm Phả', N'Quảng Ninh')
+	,(103,N'Đường 103', N'Hải Hậu', N'Nam Định')
+	,(132,N'Đường Quốc Giản', N'Bắc Kiến Xường', N'Thái Bình')
 	,(102,N'Đường 102 102', N'Cẩm Phả', N'Quảng Ninh')
 	,(103,N'Đường 103', N'Hải Hậu', N'Nam Định')
+	,(101,N'Đường 39', N'Lê Chân', N'Hải Phòng')
+	,(102,N'Đường 102', N'Cẩm Phả', N'Quảng Ninh')
+	,(103,N'Đường 103', N'Hải Hậu', N'Nam Định')
+	,(101,N'Đường 39', N'Lê Chân', N'Hải Phòng')
+	,(102,N'Đường 102', N'Cẩm Phả', N'Quảng Ninh')
+	,(103,N'Đường 103', N'Hải Hậu', N'Nam Định')
+	,(101,N'Đường 39', N'Lê Chân', N'Hải Phòng')
+	,(102,N'Đường 102', N'Cẩm Phả', N'Quảng Ninh')
+	,(103,N'Đường 103', N'Hải Hậu', N'Nam Định')
+	,(101,N'Đường 39', N'Lê Chân', N'Hải Phòng')
+	,(102,N'Đường 102', N'Cẩm Phả', N'Quảng Ninh')
 
 
 --UPDATE DiaChi SET SoNha = 111, Duong = N'Đường 40', Quan = N'Lê Chân', ThanhPho = N'Hải Phòng'
 --		WHERE IdDiaChi = 10001
 
 --select * from DiaChi
+-- delete ThiSinh
 
 CREATE TABLE Khoi
 (
@@ -93,19 +110,33 @@ CREATE TABLE ThiSinh
 
 INSERT INTO ThiSinh
 VALUES
-	(N'Nguyễn Văn A',10001, 1, N'Nhóm 1')
-	,(N'Trần Văn B',10002, 2, N'Nhóm 2')
-	,(N'Nguyễn Thị Thu Thảo',10003, 3, N'Nhóm 3')
+	(N'Nguyễn Văn A',10000, 1, N'Nhóm 1')
+	,(N'Trần Văn B',10001, 2, N'Nhóm 2')
+	,(N'Lưu Hải Yến',10002, 2, N'Nhóm 3')
+	,(N'Cao Thị Hoan',10003, 1, N'Nhóm 2')
+	,(N'Nguyễn Thị Thu',10004, 1, N'Nhóm 3')
+	,(N'Lý Như Hoa',10005, 1, N'Nhóm 1')
+	,(N'Trần Thị Vân',10006, 3, N'Nhóm 3')
+	,(N'Nguyễn Vân Anh',10007, 1, N'Nhóm 3')
+	,(N'Nguyễn Thị An',10008, 2, N'Nhóm 3')
+	,(N'Trần Tuấn Anh',1009, 3, N'Nhóm 1')
+	,(N'Nguyễn Hoàng',10010, 3, N'Nhóm 3')
+	,(N'Nguyễn Thị Thu',10011, 2, N'Nhóm 1')
+	,(N'Nguyễn Thị Thu',10012, 1, N'Nhóm 3')
+	,(N'Trần Trung Kiên',10013, 3, N'Nhóm 2')
+	,(N'Phạm Thị Thư',10014, 2, N'Nhóm 1')
+	,(N'Vũ Ngọc Như',10015, 3, N'Nhóm 3')
+--	,(N'Bạch Như Nguyệt',10016, 3, N'Nhóm 2')
 
-
-
+	
+--drop table ThiSinh
+--delete ThiSinh
 
 --	INSERT INTO ThiSinh
 --VALUEs
 --	(1000001,N'Nguyễn Văn ABC',10001, 1 , N'Nhóm 1')
 
 --drop table Khoi
---drop table ThiSinh
 --drop table DiaChi
 
 --delete  ThiSinh
