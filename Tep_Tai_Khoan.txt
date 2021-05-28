@@ -1,0 +1,13 @@
+* Tai khoan nguoi dung:
+	- tk: user1 , mk: user1
+	- tk: user2 , mk: user2
+	- tk: user3 , mk: user3
+	- tk: user4 , mk: user4
+	- tk: user5 , mk: user5
+	- tk: user6 , mk: user6
+	- tk: user7 , mk: user7
+* Tài khoan Admin: 
+	- tk: quantrivien, mk: admin_qtv
+	- tk: buidangtan , mk: buidangtan
+	- tk: nguyenvanson , mk: nguyenvanson
+	- tk: nguyenducthanh , mk: nguyenducthanh

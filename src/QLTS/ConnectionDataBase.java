@@ -14,19 +14,44 @@ import java.sql.*;
  */
 public class ConnectionDataBase {
     static Connection conn = null;
+//    public static Connection getConnectDB()throws ClassNotFoundException, SQLException{
+//        try {
+//            //jdbc:sqlserver://localhost:1433;databaseName=QLU
+//            //jdbc:sqlserver://LocalHost:1433;databaseName=QLTS
+//            final String url= "jdbc:sqlserver://localhost:1433;databaseName=QLTS";
+//            final String user = "sa";
+//            final String pass = "sa123";
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = (Connection) DriverManager.getConnection(url,user,pass);
+//            System.out.println("Ket noi thanh cong!");
+//        } catch (SQLException e) {
+//            System.out.println("Khong ket noi duoc!" + e);
+//        }
+//        return conn;
+//    }
+    
     public static Connection getConnectDB()throws ClassNotFoundException, SQLException{
+        final String url = "jdbc:mysql://localhost:3306/qlts";
+        final String user = "root";
+        final String password = "Otvntu2000";
+        
         try {
-            //jdbc:sqlserver://localhost:1433;databaseName=QLU
-            //jdbc:sqlserver://LocalHost:1433;databaseName=QLTS
-            final String url= "jdbc:sqlserver://localhost:1433;databaseName=QLTS";
-            final String user = "sa";
-            final String pass = "sa123";
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = (Connection) DriverManager.getConnection(url,user,pass);
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = (Connection) DriverManager.getConnection(url,user,password);
             System.out.println("Ket noi thanh cong!");
-        } catch (SQLException e) {
-            System.out.println("Khong ket noi duoc!" + e);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
         return conn;
+    }
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Connection connection = getConnectDB();
+        if(connection != null){
+            System.out.println("Thanh Cong");
+        }else{
+            System.out.println("That Bai");
+        }
     }
 }

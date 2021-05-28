@@ -22,7 +22,7 @@ public class ExecuteStatement {
             Statement stm = null;
             ResultSet rs = null;
             Connection  conn = ConnectionDataBase.getConnectDB();
-            String s = " SELECT * FROM TaiKhoan";
+            String s = " SELECT * FROM TaiKhoan;";
             stm = conn.createStatement();
              rs = stm.executeQuery(s);
             while (rs.next()) {
@@ -49,7 +49,7 @@ public class ExecuteStatement {
             Statement stm = null;
             ResultSet rs = null;
             Connection  conn = ConnectionDataBase.getConnectDB();
-            String s = " SELECT * FROM QuanTriVien";
+            String s = " SELECT * FROM QuanTriVien;";
             stm = conn.createStatement();
              rs = stm.executeQuery(s);
             while (rs.next()) {

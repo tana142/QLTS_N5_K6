@@ -21,7 +21,7 @@ public class UpdatePrepareStatement {
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
             String updatedc = "UPDATE DiaChi SET SoNha = ? , Duong = ? , Quan = ?, ThanhPho = ? "
-                    + "		WHERE IdDiaChi = ?";
+                    + "		WHERE IdDiaChi = ?;";
             PreparedStatement preparedStatement = conn.prepareStatement(updatedc);
             preparedStatement.setInt(1, soNha);
             preparedStatement.setString(2, duong);
@@ -64,7 +64,7 @@ public class UpdatePrepareStatement {
                     + "		,IdDiaChi = ?"
                     + "		,IdKhoi = ?"
                     + "		,UuTien = ?"
-                    + "		WHERE SBD = ? ";
+                    + "		WHERE SBD = ? ;";
 //            
             updateDC(sbd, soNha, duong, quan, thanhPho);
 
@@ -91,7 +91,7 @@ public class UpdatePrepareStatement {
     public static void deleteDC(int id) {
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String deletedc = "DELETE DiaChi WHERE IdDiaChi = ?";
+            String deletedc = "DELETE FROM DiaChi WHERE IdDiaChi = ?;";
 
             PreparedStatement preparedStatement = conn.prepareStatement(deletedc);
             preparedStatement.setInt(1, id);
@@ -111,7 +111,7 @@ public class UpdatePrepareStatement {
 
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String deletets = "DELETE ThiSinh WHERE SBD = ?";
+            String deletets = "DELETE FROM ThiSinh WHERE SBD = ?;";
 //            
             deleteDC(sbd);
 
@@ -135,8 +135,8 @@ public class UpdatePrepareStatement {
     public static void insertDC( int soNha, String duong, String quan, String thanhPho) {
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String updatedc = "INSERT INTO DiaChi( SoNha, Duong, Quan, ThanhPho)\n"
-                    + "VALUES (?,?,?,?)";
+            String updatedc = "INSERT INTO DiaChi( IdDiaChi, SoNha, Duong, Quan, ThanhPho)\n"
+                    + "VALUES (NOT NULL,?,?,?,?);";
 
             PreparedStatement preparedStatement = conn.prepareStatement(updatedc);
             preparedStatement.setInt(1, soNha);
@@ -174,8 +174,8 @@ public class UpdatePrepareStatement {
 
         try {
             Connection conn = ConnectionDataBase.getConnectDB();
-            String updatets = "INSERT INTO ThiSinh( HoTen, IdDiaChi,IdKhoi,UuTien)\n"
-                    + "VALUES (?,?,?,?)";
+            String updatets = "INSERT INTO ThiSinh( SBD, HoTen, IdDiaChi,IdKhoi,UuTien)\n"
+                    + "VALUES (NOT NULL ,?,?,?,?);";
 //            
             insertDC(soNha, duong, quan, thanhPho);
 
